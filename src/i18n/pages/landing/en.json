@@ -60,6 +60,37 @@
     "show_happy_users": true,
     "show_badge": false
   },
+  "introduce": {
+    "name": "introduce",
+    "title": "Why Flash Image Leads AI Photo Editing",
+    "label": "Features",
+    "description": "Flash Image delivers the most advanced AI image editing with unmatched accuracy and consistency.",
+    "image": {
+      "src": "https://files.picturetodrawing.com/sample/draw-introduce.mp4"
+    },
+    "items": [
+      {
+        "title": "Contextual Editing Excellence",
+        "description": "Flash Image seamlessly edits while preserving original context. Add objects, change weather, or alter decor with realistic lighting and perfect consistency.",
+        "icon": "RiEditLine"
+      },
+      {
+        "title": "Unmatched Consistency",
+        "description": "Flash Image preserves core features while changing expressions, styles, or backgrounds. Generate consistent characters from any angle with perfect environmental harmony.",
+        "icon": "RiRefreshLine"
+      },
+      {
+        "title": "Smart AI Reasoning",
+        "description": "Flash Image understands complex instructions beyond simple prompts. Transform sketches into detailed images with intelligent real-world reasoning.",
+        "icon": "RiBrainLine"
+      },
+      {
+        "title": "3D Spatial Intelligence",
+        "description": "Flash Image's 3D understanding enables realistic effects, natural object placement, and accurate perspective simulation within 2D images.",
+        "icon": "RiBox3Line"
+      }
+    ]
+  },
   "features": {
     "name": "features",
     "title": "Why Flash Image Leads AI Photo Editing",
@@ -96,14 +127,6 @@
         "icon": "RiBox3Line",
         "image": {
           "src": "/imgs/features/3d-understanding.png"
-        }
-      },
-      {
-        "title": "Powerful Photo Restoration",
-        "description": "Effectively repair old, blurry, or damaged photos with Flash Image's advanced restoration capabilities. Remove watermarks, fix creases, restore missing details, and colorize black-and-white photos with natural results.",
-        "icon": "RiMagicLine",
-        "image": {
-          "src": "/imgs/features/photo-restoration.png"
         }
       }
     ]
@@ -144,7 +167,7 @@
   "faq": {
     "name": "faq",
     "label": "FAQ",
-    "title": "Frequently Asked Questions",
+    "title": "Frequently Asked Questions About Flash Image",
     "description": "Get answers to common questions about Flash Image's capabilities, pricing, and usage.",
     "items": [
       {
@@ -204,7 +227,7 @@
         "title": "Creative Content & Video Production",
         "label": "Creative Content",
         "icon": "RiVideoLine",
-        "description": "Flash Image revolutionizes creative workflows for artists, designers, and video creators. Generate consistent character designs across different scenes and poses, create compelling concept art, and produce unique visuals for social media platforms. The tool's ability to maintain character consistency makes it invaluable for storytelling and brand development.",
+        "description": "Flash Image revolutionizes creative workflows for artists and designers. Generate consistent characters across scenes, create compelling concept art, and produce unique social media visuals with unmatched consistency.",
         "image": {
           "src": "https://pub-0e2ed356515c4b04b2ef9ad8006e4830.r2.dev/landing/usecase_flash_image_creative_content.webp",
           "alt": "Flash Image Usecase - Creative Content"
@@ -225,7 +248,7 @@
         "title": "Marketing & Advertising Excellence",
         "label": "Marketing & Advertising",
         "icon": "RiMegaphoneLine",
-        "description": "Transform your marketing campaigns with Flash Image's professional-grade capabilities. Create high-quality product lifestyle shots, seamlessly place products into various scenes, design stylized advertisements, and craft engaging thumbnails that drive conversions. Perfect for agencies and brands seeking impactful visual content.",
+        "description": "Transform marketing campaigns with Flash Image's professional capabilities. Create high-quality lifestyle shots, design stylized advertisements, and craft engaging thumbnails that drive conversions.",
         "image": {
           "src": "https://pub-0e2ed356515c4b04b2ef9ad8006e4830.r2.dev/landing/usecase_flash_image_marketing.webp",
           "alt": "Flash Image Usecase - Marketing & Advertising"
@@ -246,7 +269,7 @@
         "title": "E-commerce & Product Design",
         "label": "E-commerce",
         "icon": "RiShoppingCartLine",
-        "description": "Enhance your e-commerce presence with Flash Image's product visualization capabilities. Create realistic product mockups, visualize furniture in empty rooms, and apply different design styles and textures to products like shoes or accessories. Reduce photography costs while maintaining professional quality standards.",
+        "description": "Enhance e-commerce presence with Flash Image's visualization capabilities. Create realistic product mockups, visualize items in context, and apply various design styles while reducing photography costs.",
         "image": {
           "src": "https://pub-0e2ed356515c4b04b2ef9ad8006e4830.r2.dev/landing/usecase_flash_image_product_design.webp",
           "alt": "Flash Image Usecase - E-commerce"
@@ -267,7 +290,7 @@
         "title": "Professional Photo Editing & Restoration",
         "label": "Photo Enhancement",
         "icon": "RiCameraLine",
-        "description": "Elevate your photography with Flash Image's advanced editing and restoration features. Perfect for professional photographers and personal use, simplifying complex tasks like portrait retouching, unwanted element removal, old family photo restoration, and historical image colorization with natural-looking results.",
+        "description": "Elevate photography with Flash Image's advanced editing and restoration features. Simplify portrait retouching, photo restoration, and historical colorization with professional, natural-looking results.",
         "image": {
           "src": "https://pub-0e2ed356515c4b04b2ef9ad8006e4830.r2.dev/landing/usecase_flash_image_photo_restore.webp",
           "alt": "Flash Image Usecase - Photo Enhancement"
@@ -288,7 +311,7 @@
         "title": "Personal & Entertainment Applications",
         "label": "Personal Use",
         "icon": "RiHeartLine",
-        "description": "Unleash your creativity with Flash Image for personal projects and entertainment. Create imaginative and fun images, place yourself with celebrities, design fantasy scenarios, or creatively edit photos of pets and family members. Perfect for social media sharing and personal memories enhancement.",
+        "description": "Unleash creativity with Flash Image for personal projects. Create imaginative images, design fantasy scenarios, and enhance family photos. Perfect for social media and personal memories.",
         "image": {
           "src": "https://pub-0e2ed356515c4b04b2ef9ad8006e4830.r2.dev/landing/usecase_flash_image_photo_personal.webp",
           "alt": "Flash Image Usecase - Personal Use"

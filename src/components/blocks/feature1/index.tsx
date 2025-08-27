@@ -7,53 +7,62 @@ export default function Feature1({ section }: { section: SectionType }) {
   }
 
   return (
-    <section id={section.name} className="py-16 bg-indigo-50">
+    <section id={section.name} className="py-20 bg-gradient-to-b from-yellow-50 to-white">
       <div className="container">
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {section.image && (
-            <video
-              src={section.image?.src}
-              autoPlay
-              loop
-              muted
-              playsInline
-              controls={false}
-              className="max-h-full w-full rounded-md object-cover px-8"
-            >
-              Your browser does not support the video tag.
-            </video>
+            <div className="relative">
+              <video
+                src={section.image?.src}
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls={false}
+                className="w-full rounded-xl object-cover shadow-2xl"
+              >
+                Your browser does not support the video tag.
+              </video>
+              <div className="absolute -inset-4 bg-gradient-to-r from-yellow-200/20 to-orange-200/20 rounded-2xl -z-10"></div>
+            </div>
           )}
-          <div className="flex flex-col lg:text-left">
+          <div className="flex flex-col space-y-8">
             {section.title && (
-              <h2 className="mb-6 text-pretty text-3xl font-bold lg:text-4xl">
-                {section.title}
-              </h2>
+              <div className="space-y-4">
+                <h2 className="text-3xl font-bold tracking-tight lg:text-4xl xl:text-5xl">
+                  {section.title}
+                </h2>
+                {section.description && (
+                  <p className="text-lg text-muted-foreground/80 leading-relaxed">
+                    {section.description}
+                  </p>
+                )}
+              </div>
             )}
-            {section.description && (
-              <p className="mb-8 max-w-xl text-muted-foreground lg:max-w-none lg:text-lg">
-                {section.description}
-              </p>
-            )}
-            <ul className="flex flex-col justify-center gap-y-8">
+            <div className="space-y-2">
               {section.items?.map((item, i) => (
-                <li key={i} className="flex">
+                <div key={i} className="group flex gap-4 p-4 rounded-lg  duration-200 border-none">
                   {item.icon && (
-                    <Icon
-                      name={item.icon}
-                      className="mr-2 size-6 shrink-0 lg:mr-2 lg:size-6"
-                    />
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="p-2 bg-gradient-to-br from-primary to-primary/60 rounded-lg shadow-sm">
+                        <Icon
+                          name={item.icon}
+                          className="size-5 text-white"
+                        />
+                      </div>
+                    </div>
                   )}
-                  <div>
-                    <div className="mb-3 h-5 text-sm font-semibold text-accent-foreground md:text-base">
+                  <div className="flex-1 space-y-2">
+                    <h3 className="font-semibold text-foreground">
                       {item.title}
-                    </div>
-                    <div className="text-sm font-medium text-muted-foreground md:text-base">
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {item.description}
-                    </div>
+                    </p>
                   </div>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </div>

@@ -8,20 +8,20 @@ export default function TransformationExamples({ section }: { section: SectionTy
   }
 
   return (
-    <section id={section.name} className="py-20 bg-gray-50">
+    <section id={section.name} className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {section.title}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             {section.description}
           </p>
         </div>
 
         {/* Use Cases Grid */}
-        <div className="space-y-16">
+        <div className="space-y-32">
           {section.items?.map((item, i) => {
             // Define color schemes for different use cases
             const colorSchemes = [
@@ -34,14 +34,14 @@ export default function TransformationExamples({ section }: { section: SectionTy
             const colorScheme = colorSchemes[i % colorSchemes.length];
 
             return (
-              <div key={i} className="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+              <div key={i} className="lg:grid lg:grid-cols-2 lg:gap-20 items-center">
                 {/* Content side */}
                 <div className={`${i % 2 === 1 ? 'order-1 lg:order-2' : 'order-1 lg:order-1'} mb-8 lg:mb-0`}>
                   <div className={`inline-flex items-center ${colorScheme.bg} ${colorScheme.text} px-3 py-1 rounded-full text-sm font-medium mb-4`}>
                     {item.icon && <Icon name={item.icon} className="mr-2" />}
                     {item.label || item.title}
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{item.title}</h3>
+                  <h3 className="lg:text-3xl text-2xl font-bold text-gray-900 mb-4">{item.title}</h3>
                   <p className="text-gray-600 mb-6 leading-relaxed">
                     {item.description}
                   </p>
