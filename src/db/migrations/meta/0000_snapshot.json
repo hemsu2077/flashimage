@@ -1,5 +1,5 @@
 {
-  "id": "26e56a08-03d9-4919-852e-296a62f00d20",
+  "id": "5b08c299-8422-497a-8bfa-7bb46f6fa7f9",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -212,8 +212,8 @@
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
-        "user_date_unique": {
-          "name": "user_date_unique",
+        "flash_images_user_date_unique": {
+          "name": "flash_images_user_date_unique",
           "nullsNotDistinct": false,
           "columns": [
             "user_uuid",
@@ -875,8 +875,8 @@
         }
       },
       "indexes": {
-        "email_provider_unique_idx": {
-          "name": "email_provider_unique_idx",
+        "flash_images_email_provider_unique_idx": {
+          "name": "flash_images_email_provider_unique_idx",
           "columns": [
             {
               "expression": "email",

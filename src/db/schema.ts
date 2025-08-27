@@ -31,7 +31,7 @@ export const users = pgTable(
     is_affiliate: boolean().notNull().default(false),
   },
   (table) => [
-    uniqueIndex("email_provider_unique_idx").on(
+    uniqueIndex("flash_images_email_provider_unique_idx").on(
       table.email,
       table.signin_provider
     ),
@@ -154,5 +154,5 @@ export const checkins = pgTable("flash_images_checkins", {
   credits_earned: integer().notNull(),
   created_at: timestamp({ withTimezone: true }),
 }, (table) => [
-  unique("user_date_unique").on(table.user_uuid, table.checkin_date),
+  unique("flash_images_user_date_unique").on(table.user_uuid, table.checkin_date),
 ]);

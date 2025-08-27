@@ -27,7 +27,7 @@ CREATE TABLE "flash_images_checkins" (
 	"consecutive_days" integer DEFAULT 1 NOT NULL,
 	"credits_earned" integer NOT NULL,
 	"created_at" timestamp with time zone,
-	CONSTRAINT "user_date_unique" UNIQUE("user_uuid","checkin_date")
+	CONSTRAINT "flash_images_user_date_unique" UNIQUE("user_uuid","checkin_date")
 );
 --> statement-breakpoint
 CREATE TABLE "flash_images_credits" (
@@ -132,4 +132,4 @@ CREATE TABLE "flash_images_users" (
 	CONSTRAINT "flash_images_users_uuid_unique" UNIQUE("uuid")
 );
 --> statement-breakpoint
-CREATE UNIQUE INDEX "email_provider_unique_idx" ON "flash_images_users" USING btree ("email","signin_provider");
+CREATE UNIQUE INDEX "flash_images_email_provider_unique_idx" ON "flash_images_users" USING btree ("email","signin_provider");
