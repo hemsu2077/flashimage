@@ -13,6 +13,7 @@ export interface LandingPage {
   benefit?: Section;
   art_styles?: Section;
   transformation_examples?: Section;
+  use_cases?: Section;
   perfect_uses?: Section;
   comparison?: Section;
   ai_excellence?: Section;

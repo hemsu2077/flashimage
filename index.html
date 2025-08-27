@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Image - AI-Powered Image Editing Tool | Transform Photos Instantly</title>
+    <meta name="description" content="Flash Image (formerly Gemini 2.5) is the most advanced AI image editing tool. Transform photos with contextual editing, consistent character generation, and professional retouching capabilities.">
+    <meta name="keywords" content="Flash Image, AI image editing, photo editing, image enhancement, AI photo editor, contextual editing, image restoration">
+    <meta name="author" content="Flash Image">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Flash Image - Revolutionary AI Image Editing">
+    <meta property="og:description" content="Transform your photos with Flash Image's advanced AI technology. Professional editing, consistent results, and seamless integration.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flashimage.ai">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Flash Image - AI Image Editing Revolution">
+    <meta name="twitter:description" content="Experience the future of photo editing with Flash Image's contextual AI technology.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .feature-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Flash Image",
+        "description": "Advanced AI-powered image editing tool for professional photo transformation and enhancement",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "12847"
+        }
+    }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 scroll-smooth">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-bolt text-2xl text-blue-600"></i>
+                        <span class="ml-2 text-xl font-bold text-gray-900">Flash Image</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#features" class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">Features</a>
+                        <a href="#use-cases" class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">Use Cases</a>
+                        <a href="#how-to-use" class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">How It Works</a>
+                        <a href="#testimonials" class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">Reviews</a>
+                        <a href="#faq" class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">FAQ</a>
+                        <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                            Try Flash Image
+                        </button>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#features" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Features</a>
+                <a href="#use-cases" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Use Cases</a>
+                <a href="#how-to-use" class="block px-3 py-2 text-gray-600 hover:text-gray-900">How It Works</a>
+                <a href="#testimonials" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Reviews</a>
+                <a href="#faq" class="block px-3 py-2 text-gray-600 hover:text-gray-900">FAQ</a>
+                <button class="w-full text-left bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                    Try Flash Image
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                        Transform Photos with 
+                        <span class="text-blue-600">Flash Image</span> AI
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        Experience the most advanced AI-powered image editing tool. Flash Image delivers professional-grade contextual editing, consistent character generation, and seamless photo enhancement that preserves natural details while transforming your creative vision into reality.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg hover-scale">
+                            <i class="fas fa-magic mr-2"></i>
+                            Start Editing Now
+                        </button>
+                        <button class="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg hover:border-gray-400 transition-colors font-semibold text-lg hover-scale">
+                            <i class="fas fa-play mr-2"></i>
+                            Watch Demo
+                        </button>
+                    </div>
+                    <div class="mt-8 flex items-center space-x-6">
+                        <div class="flex items-center">
+                            <div class="flex -space-x-2">
+                                <div class="w-8 h-8 bg-blue-500 rounded-full border-2 border-white"></div>
+                                <div class="w-8 h-8 bg-green-500 rounded-full border-2 border-white"></div>
+                                <div class="w-8 h-8 bg-purple-500 rounded-full border-2 border-white"></div>
+                            </div>
+                            <span class="ml-3 text-sm text-gray-600">Trusted by 50K+ creators</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-600">4.9/5 rating</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-white rounded-2xl p-8 shadow-2xl">
+                        <!-- Hero Image Placeholder -->
+                        <div class="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-image text-6xl text-gray-400 mb-4"></i>
+                                <p class="text-gray-500 font-medium">Flash Image Demo</p>
+                                <p class="text-sm text-gray-400">Before & After Transformation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Floating Elements -->
+                    <div class="absolute -top-4 -right-4 bg-blue-600 text-white p-3 rounded-full">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="absolute -bottom-4 -left-4 bg-green-500 text-white p-3 rounded-full">
+                        <i class="fas fa-check"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Powerful Flash Image Features
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Discover why Flash Image stands out as the premier AI image editing solution. Our advanced technology delivers unprecedented accuracy and consistency in every edit.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1: High-Fidelity Contextual Editing -->
+                <div class="bg-white rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-edit text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">High-Fidelity Contextual Editing</h3>
+                    <p class="text-gray-600 mb-6">
+                        Flash Image excels at seamlessly editing images while preserving original context. Add or remove objects, change weather conditions, or alter room decor with realistic lighting and shadows that maintain perfect consistency.
+                    </p>
+                    <!-- Feature Image Placeholder -->
+                    <div class="aspect-video bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-image text-3xl text-blue-400 mb-2"></i>
+                            <p class="text-sm text-blue-600 font-medium">Contextual Editing Demo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Exceptional Consistency -->
+                <div class="bg-white rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-sync-alt text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Exceptional Consistency</h3>
+                    <p class="text-gray-600 mb-6">
+                        Maintain remarkable consistency across all edits. Flash Image preserves core facial features while changing expressions, hairstyles, or backgrounds. Generate consistent characters from different angles with perfect environmental interactions.
+                    </p>
+                    <!-- Feature Image Placeholder -->
+                    <div class="aspect-video bg-gradient-to-br from-green-50 to-green-100 rounded-lg flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-user-friends text-3xl text-green-400 mb-2"></i>
+                            <p class="text-sm text-green-600 font-medium">Character Consistency</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3: Advanced Reasoning -->
+                <div class="bg-white rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-brain text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Advanced Reasoning & Instructions</h3>
+                    <p class="text-gray-600 mb-6">
+                        Flash Image demonstrates exceptional ability to understand and reason beyond simple prompts. It infers real-world consequences and transforms rough sketches into detailed images by following complex instructions with precision.
+                    </p>
+                    <!-- Feature Image Placeholder -->
+                    <div class="aspect-video bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-lightbulb text-3xl text-purple-400 mb-2"></i>
+                            <p class="text-sm text-purple-600 font-medium">AI Reasoning Example</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 4: 3D Understanding -->
+                <div class="bg-white rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cube text-2xl text-orange-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Sophisticated 3D Understanding</h3>
+                    <p class="text-gray-600 mb-6">
+                        Strong understanding of 3D space within 2D images enables Flash Image to apply realistic 3D effects, place objects naturally into scenes, and simulate different perspectives with logical accuracy.
+                    </p>
+                    <!-- Feature Image Placeholder -->
+                    <div class="aspect-video bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-shapes text-3xl text-orange-400 mb-2"></i>
+                            <p class="text-sm text-orange-600 font-medium">3D Perspective Demo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 5: Photo Restoration -->
+                <div class="bg-white rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-magic text-2xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Powerful Photo Restoration</h3>
+                    <p class="text-gray-600 mb-6">
+                        Effectively repair old, blurry, or damaged photos with Flash Image's advanced restoration capabilities. Remove watermarks, fix creases, restore missing details, and colorize black-and-white photos with natural results.
+                    </p>
+                    <!-- Feature Image Placeholder -->
+                    <div class="aspect-video bg-gradient-to-br from-red-50 to-red-100 rounded-lg flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-history text-3xl text-red-400 mb-2"></i>
+                            <p class="text-sm text-red-600 font-medium">Photo Restoration</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 6: Multimodal Capabilities -->
+                <div class="bg-white rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-teal-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-layer-group text-2xl text-teal-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Multimodal Capabilities</h3>
+                    <p class="text-gray-600 mb-6">
+                        Work with multiple inputs seamlessly. Flash Image combines several source images to create coherent composite photos and can modify existing text within images while maintaining visual harmony.
+                    </p>
+                    <!-- Feature Image Placeholder -->
+                    <div class="aspect-video bg-gradient-to-br from-teal-50 to-teal-100 rounded-lg flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-images text-3xl text-teal-400 mb-2"></i>
+                            <p class="text-sm text-teal-600 font-medium">Multi-Image Compositing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section id="use-cases" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Flash Image Use Cases
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    From creative content production to professional marketing materials, Flash Image empowers professionals across industries to achieve stunning visual results with unprecedented efficiency.
+                </p>
+            </div>
+
+            <div class="space-y-16">
+                <!-- Use Case 1: Creative Content & Video Production -->
+                <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                    <div class="mb-8 lg:mb-0">
+                        <div class="inline-flex items-center bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                            <i class="fas fa-video mr-2"></i>
+                            Creative Content
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Creative Content & Video Production</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Flash Image revolutionizes creative workflows for artists, designers, and video creators. Generate consistent character designs across different scenes and poses, create compelling concept art, and produce unique visuals for social media platforms. The tool's ability to maintain character consistency makes it invaluable for storytelling and brand development.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Consistent character generation</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Concept art creation</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Social media content</li>
+                        </ul>
+                    </div>
+                    <div class="relative">
+                        <!-- Use Case Image Placeholder -->
+                        <div class="aspect-video bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-palette text-6xl text-blue-400 mb-4"></i>
+                                <p class="text-blue-600 font-semibold">Creative Content Examples</p>
+                                <p class="text-sm text-blue-500">Character designs, concept art, social media visuals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Use Case 2: Marketing & Advertising -->
+                <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                    <div class="order-2 lg:order-1 relative">
+                        <!-- Use Case Image Placeholder -->
+                        <div class="aspect-video bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-bullhorn text-6xl text-green-400 mb-4"></i>
+                                <p class="text-green-600 font-semibold">Marketing Materials</p>
+                                <p class="text-sm text-green-500">Product shots, advertisements, thumbnails</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 mb-8 lg:mb-0">
+                        <div class="inline-flex items-center bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                            <i class="fas fa-chart-line mr-2"></i>
+                            Marketing & Advertising
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Marketing & Advertising Excellence</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Transform your marketing campaigns with Flash Image's professional-grade capabilities. Create high-quality product lifestyle shots, seamlessly place products into various scenes, design stylized advertisements, and craft engaging thumbnails that drive conversions. Perfect for agencies and brands seeking impactful visual content.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Product lifestyle photography</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Advertisement design</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Engaging thumbnails</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Use Case 3: E-commerce & Product Design -->
+                <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                    <div class="mb-8 lg:mb-0">
+                        <div class="inline-flex items-center bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                            <i class="fas fa-shopping-cart mr-2"></i>
+                            E-commerce
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">E-commerce & Product Design</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Enhance your e-commerce presence with Flash Image's product visualization capabilities. Create realistic product mockups, visualize furniture in empty rooms, and apply different design styles and textures to products like shoes or accessories. Reduce photography costs while maintaining professional quality standards.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Realistic product mockups</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Room visualization</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Style and texture variations</li>
+                        </ul>
+                    </div>
+                    <div class="relative">
+                        <!-- Use Case Image Placeholder -->
+                        <div class="aspect-video bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-box text-6xl text-purple-400 mb-4"></i>
+                                <p class="text-purple-600 font-semibold">Product Visualization</p>
+                                <p class="text-sm text-purple-500">Mockups, room settings, style variations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Use Case 4: Photo Editing & Restoration -->
+                <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                    <div class="order-2 lg:order-1 relative">
+                        <!-- Use Case Image Placeholder -->
+                        <div class="aspect-video bg-gradient-to-br from-orange-100 to-orange-200 rounded-xl flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-camera-retro text-6xl text-orange-400 mb-4"></i>
+                                <p class="text-orange-600 font-semibold">Photo Enhancement</p>
+                                <p class="text-sm text-orange-500">Retouching, restoration, colorization</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 mb-8 lg:mb-0">
+                        <div class="inline-flex items-center bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                            <i class="fas fa-camera mr-2"></i>
+                            Photo Enhancement
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Professional Photo Editing & Restoration</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Elevate your photography with Flash Image's advanced editing and restoration features. Perfect for professional photographers and personal use, simplifying complex tasks like portrait retouching, unwanted element removal, old family photo restoration, and historical image colorization with natural-looking results.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Portrait retouching</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Photo restoration</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Historical colorization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Use Case 5: Personal & Entertainment -->
+                <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                    <div class="mb-8 lg:mb-0">
+                        <div class="inline-flex items-center bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                            <i class="fas fa-heart mr-2"></i>
+                            Personal Use
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Personal & Entertainment Applications</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Unleash your creativity with Flash Image for personal projects and entertainment. Create imaginative and fun images, place yourself with celebrities, design fantasy scenarios, or creatively edit photos of pets and family members. Perfect for social media sharing and personal memories enhancement.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Fantasy scenario creation</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Creative pet photography</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Family memory enhancement</li>
+                        </ul>
+                    </div>
+                    <div class="relative">
+                        <!-- Use Case Image Placeholder -->
+                        <div class="aspect-video bg-gradient-to-br from-pink-100 to-pink-200 rounded-xl flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-smile text-6xl text-pink-400 mb-4"></i>
+                                <p class="text-pink-600 font-semibold">Fun & Creative</p>
+                                <p class="text-sm text-pink-500">Fantasy scenes, pet photos, family memories</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section id="how-to-use" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    How to Use Flash Image
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Get started with Flash Image in just three simple steps. Our intuitive interface makes professional-grade image editing accessible to everyone, from beginners to experts.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
+                        1
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Upload Your Image</h3>
+                    <p class="text-gray-600 mb-6">
+                        Simply drag and drop your image or click to browse. Flash Image supports all major image formats including JPG, PNG, and WEBP. No size restrictions - work with high-resolution images for professional results.
+                    </p>
+                    <!-- Step Image Placeholder -->
+                    <div class="aspect-square bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-upload text-4xl text-blue-400 mb-2"></i>
+                            <p class="text-sm text-blue-600 font-medium">Upload Interface</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
+                        2
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Describe Your Vision</h3>
+                    <p class="text-gray-600 mb-6">
+                        Use natural language to describe what you want to change. Flash Image understands complex instructions like "change the weather to sunset" or "add a person wearing a red jacket." Be as specific or creative as you like.
+                    </p>
+                    <!-- Step Image Placeholder -->
+                    <div class="aspect-square bg-gradient-to-br from-green-50 to-green-100 rounded-xl flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-comment-alt text-4xl text-green-400 mb-2"></i>
+                            <p class="text-sm text-green-600 font-medium">AI Instruction Input</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
+                        3
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Download & Share</h3>
+                    <p class="text-gray-600 mb-6">
+                        Watch as Flash Image transforms your image in seconds. Review the results, make additional adjustments if needed, then download your edited image in your preferred format and resolution. Share directly to social media or save for later use.
+                    </p>
+                    <!-- Step Image Placeholder -->
+                    <div class="aspect-square bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-download text-4xl text-purple-400 mb-2"></i>
+                            <p class="text-sm text-purple-600 font-medium">Export & Share</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg hover-scale">
+                    <i class="fas fa-rocket mr-2"></i>
+                    Try Flash Image Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    What Users Say About Flash Image
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Join thousands of satisfied creators, marketers, and photographers who trust Flash Image for their professional image editing needs.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-xl p-8 border border-gray-200">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "Flash Image has revolutionized my creative workflow. The consistency in character generation is unmatched - I can create entire storyboards with the same character across different scenes. Absolutely game-changing for content creators!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold">
+                            SM
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold text-gray-900">Sarah Martinez</p>
+                            <p class="text-sm text-gray-500">Creative Director</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-xl p-8 border border-gray-200">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "As a marketing agency, we need high-quality visuals fast. Flash Image delivers professional results in seconds. The contextual editing feature saves us hours compared to traditional photo editing tools."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-semibold">
+                            DJ
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold text-gray-900">David Johnson</p>
+                            <p class="text-sm text-gray-500">Marketing Manager</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-xl p-8 border border-gray-200">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "The photo restoration capabilities are incredible. I've been able to restore family photos that I thought were beyond repair. Flash Image brought back memories I thought were lost forever."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-semibold">
+                            EW
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold text-gray-900">Emily Wong</p>
+                            <p class="text-sm text-gray-500">Photographer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="bg-white rounded-xl p-8 border border-gray-200">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "Flash Image's 3D understanding is phenomenal. I can visualize products in different environments with realistic lighting and shadows. It's like having a professional photographer and 3D artist in one tool."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-semibold">
+                            MR
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold text-gray-900">Michael Rodriguez</p>
+                            <p class="text-sm text-gray-500">Product Designer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="bg-white rounded-xl p-8 border border-gray-200">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "The multimodal capabilities are outstanding. I can combine multiple images seamlessly and even edit text within photos. Flash Image understands context better than any tool I've used."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white font-semibold">
+                            LC
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold text-gray-900">Lisa Chen</p>
+                            <p class="text-sm text-gray-500">Graphic Designer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="bg-white rounded-xl p-8 border border-gray-200">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "As an e-commerce business owner, Flash Image has transformed how we create product images. The ability to place products in different settings and apply various styles has increased our conversion rates significantly."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white font-semibold">
+                            TR
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold text-gray-900">Tom Richards</p>
+                            <p class="text-sm text-gray-500">E-commerce Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <div class="inline-flex items-center bg-yellow-100 text-yellow-800 px-6 py-3 rounded-full">
+                    <div class="flex text-yellow-500 mr-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="font-semibold">4.9/5 rating from 12,847+ users</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Get answers to common questions about Flash Image's capabilities, pricing, and usage.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- FAQ 1 -->
+                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <button class="w-full text-left flex justify-between items-center" onclick="toggleFAQ(1)">
+                        <h3 class="text-lg font-semibold text-gray-900">What makes Flash Image different from other AI image editors?</h3>
+                        <i class="fas fa-chevron-down text-gray-500 transition-transform" id="faq-icon-1"></i>
+                    </button>
+                    <div class="hidden mt-4 text-gray-600" id="faq-content-1">
+                        <p>Flash Image stands out through its exceptional contextual understanding and consistency. Unlike other tools, Flash Image maintains perfect character consistency across edits, understands 3D space within 2D images, and can reason about real-world consequences. Our advanced AI preserves natural lighting, shadows, and environmental interactions while making complex edits.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <button class="w-full text-left flex justify-between items-center" onclick="toggleFAQ(2)">
+                        <h3 class="text-lg font-semibold text-gray-900">Can Flash Image handle high-resolution images for professional use?</h3>
+                        <i class="fas fa-chevron-down text-gray-500 transition-transform" id="faq-icon-2"></i>
+                    </button>
+                    <div class="hidden mt-4 text-gray-600" id="faq-content-2">
+                        <p>Absolutely! Flash Image supports high-resolution images up to 8K resolution, making it perfect for professional photography, marketing materials, and commercial applications. The AI maintains quality and detail even when working with large files, ensuring your professional projects meet the highest standards.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <button class="w-full text-left flex justify-between items-center" onclick="toggleFAQ(3)">
+                        <h3 class="text-lg font-semibold text-gray-900">How does the contextual editing feature work?</h3>
+                        <i class="fas fa-chevron-down text-gray-500 transition-transform" id="faq-icon-3"></i>
+                    </button>
+                    <div class="hidden mt-4 text-gray-600" id="faq-content-3">
+                        <p>Flash Image's contextual editing analyzes the entire image to understand lighting, shadows, perspective, and environmental factors. When you make changes, the AI automatically adjusts these elements to ensure realistic results. For example, if you add an object, Flash Image will generate appropriate shadows and reflections based on the existing lighting conditions.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <button class="w-full text-left flex justify-between items-center" onclick="toggleFAQ(4)">
+                        <h3 class="text-lg font-semibold text-gray-900">Is Flash Image suitable for beginners with no photo editing experience?</h3>
+                        <i class="fas fa-chevron-down text-gray-500 transition-transform" id="faq-icon-4"></i>
+                    </button>
+                    <div class="hidden mt-4 text-gray-600" id="faq-content-4">
+                        <p>Yes! Flash Image is designed to be intuitive for users of all skill levels. Simply upload your image and describe what you want to change in natural language. The AI handles all the complex technical aspects, making professional-grade editing accessible to everyone. No prior photo editing knowledge required.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <button class="w-full text-left flex justify-between items-center" onclick="toggleFAQ(5)">
+                        <h3 class="text-lg font-semibold text-gray-900">Can I use Flash Image for commercial projects and client work?</h3>
+                        <i class="fas fa-chevron-down text-gray-500 transition-transform" id="faq-icon-5"></i>
+                    </button>
+                    <div class="hidden mt-4 text-gray-600" id="faq-content-5">
+                        <p>Absolutely! Flash Image is perfect for commercial use, including client work, marketing materials, e-commerce products, and professional photography. Our commercial license allows unlimited usage for business purposes. Many agencies and freelancers rely on Flash Image to deliver high-quality results efficiently.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <button class="w-full text-left flex justify-between items-center" onclick="toggleFAQ(6)">
+                        <h3 class="text-lg font-semibold text-gray-900">What file formats does Flash Image support?</h3>
+                        <i class="fas fa-chevron-down text-gray-500 transition-transform" id="faq-icon-6"></i>
+                    </button>
+                    <div class="hidden mt-4 text-gray-600" id="faq-content-6">
+                        <p>Flash Image supports all major image formats including JPG, PNG, WEBP, TIFF, and BMP for input. You can export your edited images in JPG, PNG, or WEBP formats with customizable quality settings. We also support RAW file processing for professional photographers.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <button class="w-full text-left flex justify-between items-center" onclick="toggleFAQ(7)">
+                        <h3 class="text-lg font-semibold text-gray-900">How fast is Flash Image compared to traditional editing methods?</h3>
+                        <i class="fas fa-chevron-down text-gray-500 transition-transform" id="faq-icon-7"></i>
+                    </button>
+                    <div class="hidden mt-4 text-gray-600" id="faq-content-7">
+                        <p>Flash Image processes most edits in under 30 seconds, which is dramatically faster than traditional photo editing that can take hours. Complex operations like object removal, background changes, or character consistency edits that would normally require advanced Photoshop skills are completed instantly with professional results.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <button class="w-full text-left flex justify-between items-center" onclick="toggleFAQ(8)">
+                        <h3 class="text-lg font-semibold text-gray-900">Does Flash Image work offline or require internet connection?</h3>
+                        <i class="fas fa-chevron-down text-gray-500 transition-transform" id="faq-icon-8"></i>
+                    </button>
+                    <div class="hidden mt-4 text-gray-600" id="faq-content-8">
+                        <p>Flash Image currently requires an internet connection to access our powerful cloud-based AI processing servers. This ensures you always have access to the latest AI models and fastest processing speeds. We're working on offline capabilities for future releases while maintaining the same quality standards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-blue-600 to-blue-800">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                Ready to Transform Your Images with Flash Image?
+            </h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Join thousands of creators, marketers, and photographers who trust Flash Image for professional-grade AI image editing. Start creating stunning visuals today.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-50 transition-colors font-semibold text-lg hover-scale">
+                    <i class="fas fa-rocket mr-2"></i>
+                    Start Free Trial
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-blue-600 transition-colors font-semibold text-lg hover-scale">
+                    <i class="fas fa-play mr-2"></i>
+                    Watch Demo
+                </button>
+            </div>
+            <p class="text-sm text-blue-200 mt-6">No credit card required • 7-day free trial • Cancel anytime</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-bolt text-2xl text-blue-400"></i>
+                        <span class="ml-2 text-xl font-bold">Flash Image</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        The most advanced AI-powered image editing tool for professionals and creators worldwide.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#use-cases" class="text-gray-400 hover:text-white transition-colors">Use Cases</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">API</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    © 2024 Flash Image. All rights reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // FAQ toggle function
+        function toggleFAQ(index) {
+            const content = document.getElementById(`faq-content-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-white/95');
+            } else {
+                nav.classList.remove('bg-white/95');
+            }
+        });
+    </script>
+</body>
+</html>
