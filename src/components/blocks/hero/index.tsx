@@ -5,7 +5,7 @@ import HeroBg from "./bg";
 import { Hero as HeroType } from "@/types/blocks/hero";
 import Icon from "@/components/icon";
 import { Link } from "@/i18n/navigation";
-import { Gift, Shield, Zap } from "lucide-react";
+import { Brain, Images, LoaderPinwheel, Shield, Zap } from "lucide-react";
 
 export default function Hero({ hero }: { hero: HeroType }) {
   if (hero.disabled) {
@@ -89,16 +89,16 @@ export default function Hero({ hero }: { hero: HeroType }) {
             {hero.tip && (
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
                 <div className="flex items-center gap-2">
-                  <Gift className="h-4 w-4 text-primary" />
-                  <span className="text-sm text-muted-foreground">Free to Try</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Shield className="h-4 w-4 text-primary" />
-                  <span className="text-sm text-muted-foreground">100% Secure</span>
-                </div>
-                <div className="flex items-center gap-2">
                   <Zap className="h-4 w-4 text-primary" />
-                  <span className="text-sm text-muted-foreground">Instant Results</span>
+                  <span className="text-sm text-muted-foreground">Fast Generation</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Images className="h-4 w-4 text-primary" />
+                  <span className="text-sm text-muted-foreground">Contextual Editing</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <LoaderPinwheel className="h-4 w-4 text-primary" />
+                  <span className="text-sm text-muted-foreground">AI Reasoning</span>
                 </div>
               </div>
             )}
