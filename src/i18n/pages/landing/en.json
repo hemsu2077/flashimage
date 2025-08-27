@@ -3,10 +3,10 @@
   "theme": "light",
   "header": {
     "brand": {
-      "title": "PicturetoDrawing",
+      "title": "FlashImage",
       "logo": {
         "src": "/logo.png",
-        "alt": "PicturetoDrawing"
+        "alt": "FlashImage"
       },
       "url": "/"
     },
@@ -366,15 +366,15 @@
   "footer": {
     "name": "footer",
     "brand": {
-      "title": "PicturetoDrawing",
+      "title": "FlashImage",
       "description": "Transform your photos into stunning artwork with our AI-powered picture to drawing converter. Professional quality photo to sketch results in seconds.",
       "logo": {
         "src": "/logo.png",
-        "alt": "PicturetoDrawing"
+        "alt": "FlashImage"
       },
       "url": "/"
     },
-    "copyright": "© 2025 • PicturetoDrawing All rights reserved.",
+    "copyright": "© 2025 • FlashImage All rights reserved.",
     "nav": {
       "items": [
         {

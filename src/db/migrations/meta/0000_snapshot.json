@@ -1,11 +1,11 @@
 {
-  "id": "b54011e3-af75-486e-9166-bd2e32b28c6f",
+  "id": "26e56a08-03d9-4919-852e-296a62f00d20",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "public.pic_to_dra_affiliates": {
-      "name": "pic_to_dra_affiliates",
+    "public.flash_images_affiliates": {
+      "name": "flash_images_affiliates",
       "schema": "",
       "columns": {
         "id": {
@@ -15,7 +15,7 @@
           "notNull": true,
           "identity": {
             "type": "always",
-            "name": "pic_to_dra_affiliates_id_seq",
+            "name": "flash_images_affiliates_id_seq",
             "schema": "public",
             "increment": "1",
             "startWith": "1",
@@ -87,8 +87,8 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "public.pic_to_dra_apikeys": {
-      "name": "pic_to_dra_apikeys",
+    "public.flash_images_apikeys": {
+      "name": "flash_images_apikeys",
       "schema": "",
       "columns": {
         "id": {
@@ -98,7 +98,7 @@
           "notNull": true,
           "identity": {
             "type": "always",
-            "name": "pic_to_dra_apikeys_id_seq",
+            "name": "flash_images_apikeys_id_seq",
             "schema": "public",
             "increment": "1",
             "startWith": "1",
@@ -143,8 +143,8 @@
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
-        "pic_to_dra_apikeys_api_key_unique": {
-          "name": "pic_to_dra_apikeys_api_key_unique",
+        "flash_images_apikeys_api_key_unique": {
+          "name": "flash_images_apikeys_api_key_unique",
           "nullsNotDistinct": false,
           "columns": [
             "api_key"
@@ -155,8 +155,8 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "public.pic_to_dra_credits": {
-      "name": "pic_to_dra_credits",
+    "public.flash_images_checkins": {
+      "name": "flash_images_checkins",
       "schema": "",
       "columns": {
         "id": {
@@ -166,7 +166,77 @@
           "notNull": true,
           "identity": {
             "type": "always",
-            "name": "pic_to_dra_credits_id_seq",
+            "name": "flash_images_checkins_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "user_uuid": {
+          "name": "user_uuid",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "checkin_date": {
+          "name": "checkin_date",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "consecutive_days": {
+          "name": "consecutive_days",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 1
+        },
+        "credits_earned": {
+          "name": "credits_earned",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "user_date_unique": {
+          "name": "user_date_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "user_uuid",
+            "checkin_date"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.flash_images_credits": {
+      "name": "flash_images_credits",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "always",
+            "name": "flash_images_credits_id_seq",
             "schema": "public",
             "increment": "1",
             "startWith": "1",
@@ -223,8 +293,8 @@
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
-        "pic_to_dra_credits_trans_no_unique": {
-          "name": "pic_to_dra_credits_trans_no_unique",
+        "flash_images_credits_trans_no_unique": {
+          "name": "flash_images_credits_trans_no_unique",
           "nullsNotDistinct": false,
           "columns": [
             "trans_no"
@@ -235,8 +305,8 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "public.pic_to_dra_feedbacks": {
-      "name": "pic_to_dra_feedbacks",
+    "public.flash_images_feedbacks": {
+      "name": "flash_images_feedbacks",
       "schema": "",
       "columns": {
         "id": {
@@ -246,7 +316,7 @@
           "notNull": true,
           "identity": {
             "type": "always",
-            "name": "pic_to_dra_feedbacks_id_seq",
+            "name": "flash_images_feedbacks_id_seq",
             "schema": "public",
             "increment": "1",
             "startWith": "1",
@@ -295,8 +365,8 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "public.pic_to_dra_orders": {
-      "name": "pic_to_dra_orders",
+    "public.flash_images_images": {
+      "name": "flash_images_images",
       "schema": "",
       "columns": {
         "id": {
@@ -306,7 +376,113 @@
           "notNull": true,
           "identity": {
             "type": "always",
-            "name": "pic_to_dra_orders_id_seq",
+            "name": "flash_images_images_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "uuid": {
+          "name": "uuid",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "user_uuid": {
+          "name": "user_uuid",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "original_image_url": {
+          "name": "original_image_url",
+          "type": "varchar(500)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "generated_image_url": {
+          "name": "generated_image_url",
+          "type": "varchar(500)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "style": {
+          "name": "style",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ratio": {
+          "name": "ratio",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "provider": {
+          "name": "provider",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'replicate'"
+        },
+        "filename": {
+          "name": "filename",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'completed'"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "flash_images_images_uuid_unique": {
+          "name": "flash_images_images_uuid_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "uuid"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.flash_images_orders": {
+      "name": "flash_images_orders",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "always",
+            "name": "flash_images_orders_id_seq",
             "schema": "public",
             "increment": "1",
             "startWith": "1",
@@ -467,8 +643,8 @@
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
-        "pic_to_dra_orders_order_no_unique": {
-          "name": "pic_to_dra_orders_order_no_unique",
+        "flash_images_orders_order_no_unique": {
+          "name": "flash_images_orders_order_no_unique",
           "nullsNotDistinct": false,
           "columns": [
             "order_no"
@@ -479,8 +655,8 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "public.pic_to_dra_posts": {
-      "name": "pic_to_dra_posts",
+    "public.flash_images_posts": {
+      "name": "flash_images_posts",
       "schema": "",
       "columns": {
         "id": {
@@ -490,7 +666,7 @@
           "notNull": true,
           "identity": {
             "type": "always",
-            "name": "pic_to_dra_posts_id_seq",
+            "name": "flash_images_posts_id_seq",
             "schema": "public",
             "increment": "1",
             "startWith": "1",
@@ -577,8 +753,8 @@
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
-        "pic_to_dra_posts_uuid_unique": {
-          "name": "pic_to_dra_posts_uuid_unique",
+        "flash_images_posts_uuid_unique": {
+          "name": "flash_images_posts_uuid_unique",
           "nullsNotDistinct": false,
           "columns": [
             "uuid"
@@ -589,8 +765,8 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "public.pic_to_dra_users": {
-      "name": "pic_to_dra_users",
+    "public.flash_images_users": {
+      "name": "flash_images_users",
       "schema": "",
       "columns": {
         "id": {
@@ -600,7 +776,7 @@
           "notNull": true,
           "identity": {
             "type": "always",
-            "name": "pic_to_dra_users_id_seq",
+            "name": "flash_images_users_id_seq",
             "schema": "public",
             "increment": "1",
             "startWith": "1",
@@ -724,8 +900,8 @@
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
-        "pic_to_dra_users_uuid_unique": {
-          "name": "pic_to_dra_users_uuid_unique",
+        "flash_images_users_uuid_unique": {
+          "name": "flash_images_users_uuid_unique",
           "nullsNotDistinct": false,
           "columns": [
             "uuid"

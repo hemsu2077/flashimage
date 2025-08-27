@@ -50,7 +50,7 @@ Authorization: Bearer {{apiKey}}
 
 {
   "emails": ["test@mail.picturetodrawing.com"],
-  "subject": "Hello from PicturetoDrawing, with Resend",
+  "subject": "Hello from FlashImage, with Resend",
   "content": "<p style='color: red;'>Hello from <a href='https://picturetodrawing.com'>picturetodrawing</a></p>"
 }
 

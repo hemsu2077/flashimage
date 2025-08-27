@@ -12,7 +12,7 @@ import {
 
 // Users table
 export const users = pgTable(
-  "pic_to_dra_users",
+  "flash_images_users",
   {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
     uuid: varchar({ length: 255 }).notNull().unique(),
@@ -39,7 +39,7 @@ export const users = pgTable(
 );
 
 // Orders table
-export const orders = pgTable("pic_to_dra_orders", {
+export const orders = pgTable("flash_images_orders", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   order_no: varchar({ length: 255 }).notNull().unique(),
   created_at: timestamp({ withTimezone: true }),
@@ -68,7 +68,7 @@ export const orders = pgTable("pic_to_dra_orders", {
 });
 
 // API Keys table
-export const apikeys = pgTable("pic_to_dra_apikeys", {
+export const apikeys = pgTable("flash_images_apikeys", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   api_key: varchar({ length: 255 }).notNull().unique(),
   title: varchar({ length: 100 }),
@@ -78,7 +78,7 @@ export const apikeys = pgTable("pic_to_dra_apikeys", {
 });
 
 // Credits table
-export const credits = pgTable("pic_to_dra_credits", {
+export const credits = pgTable("flash_images_credits", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   trans_no: varchar({ length: 255 }).notNull().unique(),
   created_at: timestamp({ withTimezone: true }),
@@ -90,7 +90,7 @@ export const credits = pgTable("pic_to_dra_credits", {
 });
 
 // Posts table
-export const posts = pgTable("pic_to_dra_posts", {
+export const posts = pgTable("flash_images_posts", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   uuid: varchar({ length: 255 }).notNull().unique(),
   slug: varchar({ length: 255 }),
@@ -107,7 +107,7 @@ export const posts = pgTable("pic_to_dra_posts", {
 });
 
 // Affiliates table
-export const affiliates = pgTable("pic_to_dra_affiliates", {
+export const affiliates = pgTable("flash_images_affiliates", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   user_uuid: varchar({ length: 255 }).notNull(),
   created_at: timestamp({ withTimezone: true }),
@@ -120,7 +120,7 @@ export const affiliates = pgTable("pic_to_dra_affiliates", {
 });
 
 // Feedbacks table
-export const feedbacks = pgTable("pic_to_dra_feedbacks", {
+export const feedbacks = pgTable("flash_images_feedbacks", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   created_at: timestamp({ withTimezone: true }),
   status: varchar({ length: 50 }),
@@ -130,7 +130,7 @@ export const feedbacks = pgTable("pic_to_dra_feedbacks", {
 });
 
 // Generated Images table
-export const images = pgTable("pic_to_dra_images", {
+export const images = pgTable("flash_images_images", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   uuid: varchar({ length: 255 }).notNull().unique(),
   user_uuid: varchar({ length: 255 }).notNull(),
@@ -146,7 +146,7 @@ export const images = pgTable("pic_to_dra_images", {
 });
 
 // Daily Check-ins table
-export const checkins = pgTable("pic_to_dra_checkins", {
+export const checkins = pgTable("flash_images_checkins", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   user_uuid: varchar({ length: 255 }).notNull(),
   checkin_date: varchar({ length: 10 }).notNull(), // YYYY-MM-DD format

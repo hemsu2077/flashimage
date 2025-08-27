@@ -22,10 +22,10 @@ export default async function AdminLayout({
 
   const sidebar: Sidebar = {
     brand: {
-      title: "PicturetoDrawing",
+      title: "FlashImage",
       logo: {
         src: "/logo.png",
-        alt: "PicturetoDrawing",
+        alt: "FlashImage",
       },
       url: "/admin",
     },
