@@ -52,7 +52,7 @@
       {
         "title": "Try for Free",
         "icon": "RiFlashlightFill",
-        "url": "/#drawing-generator",
+        "url": "/#gen-image",
         "target": "_self",
         "variant": "default"
       }
@@ -211,7 +211,7 @@
     "buttons": [
       {
         "title": "Start Free Trial",
-        "url": "/#drawing-generator",
+        "url": "/#gen-image",
         "target": "_self",
         "icon": "RiRocketLine",
         "variant": "default"
