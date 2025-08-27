@@ -23,4 +23,5 @@ export interface GenerationState {
   isGenerating: boolean;
   result: GenerationResult | null;
   error: string | null;
+  showAddCredits?: boolean;
 }

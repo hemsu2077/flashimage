@@ -126,10 +126,11 @@ export function ImageGenerator() {
             isGenerating: false,
             result: null,
             error: data.message || 'Insufficient credits',
+            showAddCredits: true,
           });
           return;
         }
-        throw new Error(data.message || 'Generation failed');
+        throw new Error('Generated Failed, Try again');
       }
 
       // API returns {code: 0, message: "ok", data: [...]}
@@ -146,14 +147,14 @@ export function ImageGenerator() {
           error: null,
         });
       } else {
-        throw new Error(data.message || 'Invalid response format');
+        throw new Error('Generated Failed, Try again');
       }
     } catch (error) {
       console.error('Generation error:', error);
       setGenerationState({
         isGenerating: false,
         result: null,
-        error: error instanceof Error ? error.message : 'An unexpected error occurred',
+        error: 'Generated Failed, Try again',
       });
     }
   };

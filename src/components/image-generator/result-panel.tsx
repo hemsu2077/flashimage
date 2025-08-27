@@ -10,7 +10,7 @@ interface ResultPanelProps {
 }
 
 export function ResultPanel({ generationState }: ResultPanelProps) {
-  const { isGenerating, result, error } = generationState;
+  const { isGenerating, result, error, showAddCredits } = generationState;
 
   const handleDownload = () => {
     if (!result) return;
@@ -35,6 +35,11 @@ export function ResultPanel({ generationState }: ResultPanelProps) {
       // Fallback to copying URL
       navigator.clipboard.writeText(result.url);
     }
+  };
+
+  const handleAddCredits = () => {
+    // Navigate to pricing/credits page
+    window.open('/pricing', '_blank');
   };
 
   return (
@@ -63,9 +68,18 @@ export function ResultPanel({ generationState }: ResultPanelProps) {
               />
             ) : error ? (
               <div className="w-full h-full flex items-center justify-center">
-                <div className="text-center space-y-2">
+                <div className="text-center space-y-3">
                   <p className="text-sm text-red-600">Generation failed</p>
                   <p className="text-xs text-muted-foreground">{error}</p>
+                  {showAddCredits && (
+                    <Button
+                      onClick={handleAddCredits}
+                      size="sm"
+                      className="mt-2"
+                    >
+                      Add Credits
+                    </Button>
+                  )}
                 </div>
               </div>
             ) : (
