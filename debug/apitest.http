@@ -61,7 +61,9 @@ Content-Type: application/json
 Authorization: Bearer {{apiKey}}
 
 {
-  "style": "pencil drawing",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Tabby_cat_with_visible_nictitating_membrane.jpg/500px-Tabby_cat_with_visible_nictitating_membrane.jpg",
-  "ratio": ""
+  "prompt": "the woman is touching the cat",
+  "images": [
+    "https://files.picturetodrawing.com/sample/sample-2.webp",
+    "https://files.picturetodrawing.com/sample/sample-1.webp"
+  ]
 }

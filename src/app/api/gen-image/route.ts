@@ -13,92 +13,82 @@ try {
     let userUuid = "";
     
     // Check authentication and credits only if auth is enabled
-    if (isAuthEnabled()) {
-      const session = await auth();
-      if (!session?.user?.uuid) {
-        return Response.json(
-          { code: -1, message: "Authentication required" }, 
-          { status: 401 }
-        );
-      }
+    // if (isAuthEnabled()) {
+    //   const session = await auth();
+    //   if (!session?.user?.uuid) {
+    //     return Response.json(
+    //       { code: -1, message: "Authentication required" }, 
+    //       { status: 401 }
+    //     );
+    //   }
 
-      userUuid = session.user.uuid;
+    //   userUuid = session.user.uuid;
 
-      // Check user credits
-      const userCredits = await getUserCredits(userUuid);
-      if (userCredits.left_credits < 2) {
-        return Response.json(
-          { code: -1, message: "Insufficient credits." }, 
-          { status: 402 }
-        );
-      }
-    }
+    //   // Check user credits
+    //   const userCredits = await getUserCredits(userUuid);
+    //   if (userCredits.left_credits < 2) {
+    //     return Response.json(
+    //       { code: -1, message: "Insufficient credits." }, 
+    //       { status: 402 }
+    //     );
+    //   }
+    // }
 
-    const { style, image, ratio } = await req.json();
+    const { prompt, images } = await req.json();
 
     // Validate required inputs
-    if (!style || !image) {
-      return respErr("Missing required parameters: style and image");
+    if (!prompt || !images || !Array.isArray(images) || images.length === 0) {
+      return respErr("Missing required parameters: prompt and images (array)");
     }
-
-    // Map style IDs to descriptive prompts
-    const styleMap: Record<string, string> = {
-      'pencil-sketch': 'black and white pencil sketch',
-      'line-drawing': 'black and white line drawing',
-      'charcoal-drawing': 'black and white charcoal drawing',
-      'color-pencil-drawing': 'color pencil drawing',
-      'watercolor-painting': 'watercolor painting',
-      'inkart': 'ink art'
-    };
-
-    const styleName = styleMap[style] || style;
-    const prompt = `transform the image to a drawing, the drawing should be in the style of ${styleName}`
     
-    // Choose model based on style
+    // Choose model
     const model = "google/nano-banana";
-    console.log(`Using model: ${model} for style: ${style}`);
+    console.log(`Using model: ${model}`);
     
-    let inputImageUrl: string;
+    // Process input images - handle both URLs and base64
+    const imageUrls: string[] = [];
+    const storage = newStorage();
     
-    // Check if image is already a URL (sample image)
-    if (image.startsWith('https://')) {
-      inputImageUrl = image;
-      console.log("Using sample image URL:", inputImageUrl);
-    } else {
-      // Upload the input image to get a URL
-      const storage = newStorage();
-      const inputFilename = `input_${new Date().getTime()}.png`;
-      const inputKey = `picturetodrawing/inputs/${inputFilename}`;
-      const inputBody = Buffer.from(image, "base64");
+    for (let i = 0; i < images.length; i++) {
+      const image = images[i];
+      
+      if (image.startsWith('https://')) {
+        imageUrls.push(image);
+        console.log(`Using sample image URL ${i + 1}:`, image);
+      } else {
+        // Upload the input image to get a URL
+        const inputFilename = `input_${new Date().getTime()}_${i}.png`;
+        const inputKey = `flashimage/inputs/${inputFilename}`;
+        const inputBody = Buffer.from(image, "base64");
 
-      try {
-        const inputUploadResult = await storage.uploadFile({
-          body: inputBody,
-          key: inputKey,
-          contentType: "image/png",
-          disposition: "inline",
-        });
-        inputImageUrl = inputUploadResult.url;
-        console.log("Input image uploaded to:", inputImageUrl);
-      } catch (uploadError) {
-        console.error("Failed to upload input image:", uploadError);
-        throw new Error("Failed to upload input image");
+        try {
+          const inputUploadResult = await storage.uploadFile({
+            body: inputBody,
+            key: inputKey,
+            contentType: "image/png",
+            disposition: "inline",
+          });
+          imageUrls.push(inputUploadResult.url);
+          console.log(`Input image ${i + 1} uploaded to:`, inputUploadResult.url);
+        } catch (uploadError) {
+          console.error(`Failed to upload input image ${i + 1}:`, uploadError);
+          throw new Error(`Failed to upload input image ${i + 1}`);
+        }
       }
     }
     const imageModel = replicate.image(model);
     const providerOptions = {
       replicate: {
-        input_image: inputImageUrl,
-        output_format:"png",
+        image_input: imageUrls,
+        output_format: "png",
       },
     }
 
-    const { images, warnings } = await generateImage({
+    const { images: generatedImages, warnings } = await generateImage({
         model: imageModel,
         prompt: prompt,
         n: 1,
         providerOptions,
-        aspectRatio:ratio || "match_input_image",
       });
 
       if (warnings.length > 0) {
@@ -106,17 +96,16 @@ try {
         // Don't throw error for warnings, just log them
       }
 
-      if (!images || images.length === 0) {
+      if (!generatedImages || generatedImages.length === 0) {
         throw new Error("No images generated");
       }
        
     const provider = "replicate";
 
-    const storage = newStorage();
     const processedImages = await Promise.all(
-      images.map(async (image) => {
-        const filename = `PicturetoDrawing_${new Date().getTime()}.png`;
-        const key = `picturetodrawing/${filename}`;
+      generatedImages.map(async (image) => {
+        const filename = `flashimage_${new Date().getTime()}.png`;
+        const key = `flashimage/${filename}`;
         const body = Buffer.from(image.base64, "base64");
 
         try {
@@ -136,10 +125,10 @@ try {
               await insertImage({
                 uuid: imageUuid,
                 user_uuid: userUuid,
-                original_image_url: inputImageUrl,
+                original_image_url: imageUrls[0] || "", // Use first image URL as primary
                 generated_image_url: res.url || "",
-                style: style,
-                ratio: ratio || "match_input_image",
+                style: "custom", // Since we don't have predefined styles anymore
+                ratio: "custom", // Since ratio is not used in new model
                 provider: provider,
                 filename: filename,
                 status: "completed",
