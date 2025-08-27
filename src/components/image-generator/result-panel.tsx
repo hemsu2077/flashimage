@@ -38,10 +38,9 @@ export function ResultPanel({ generationState }: ResultPanelProps) {
   };
 
   return (
-    <Card className="h-fit">
+    <Card className="h-fit border-none shadow-none py-2">
       <CardContent className="p-6">
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold">Result</h3>
           
           <div className="aspect-square bg-gray-50 rounded-lg overflow-hidden">
             {isGenerating ? (

@@ -95,11 +95,11 @@ export function ImageGenerator() {
   const canGenerate = prompt.trim() && (mode === 'text-to-image' || images.length > 0);
 
   return (
-    <div className="w-full max-w-7xl mx-auto p-6">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div className="w-full max-w-6xl mx-auto">
+      <Card className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-0">
         {/* Left Panel - Input */}
         <div className="space-y-6">
-          <Card>
+          <Card className="border-none shadow-none py-2">
             <CardContent className="p-6 space-y-6">
               <TabSwitcher mode={mode} onModeChange={setMode} />
               
@@ -107,7 +107,11 @@ export function ImageGenerator() {
                 <ImageInput images={images} onImagesChange={setImages} />
               )}
               
-              <PromptInput value={prompt} onChange={setPrompt} />
+              <PromptInput 
+                value={prompt} 
+                onChange={setPrompt} 
+                mode={mode === 'text-to-image' ? 'text2img' : 'img2img'} 
+              />
               
               <GenerateButton
                 onClick={handleGenerate}
@@ -122,7 +126,7 @@ export function ImageGenerator() {
         <div>
           <ResultPanel generationState={generationState} />
         </div>
-      </div>
+      </Card>
     </div>
   );
 }

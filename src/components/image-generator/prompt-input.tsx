@@ -7,25 +7,92 @@ import { Badge } from '@/components/ui/badge';
 interface PromptInputProps {
   value: string;
   onChange: (value: string) => void;
+  mode: 'text2img' | 'img2img';
 }
 
-const presetPrompts = [
-  "remove the background",
-  "change the cloth to casual wear",
-  "change hair cut to short style",
-  "make it more colorful",
-  "add artistic effects",
-  "enhance the lighting",
-  "make it black and white",
-  "add vintage filter"
+interface PresetPrompt {
+  title: string;
+  prompt: string;
+}
+
+const textToImagePrompts: PresetPrompt[] = [
+  {
+    title: "Portrait",
+    prompt: "A professional portrait photo of a person, high quality, detailed, studio lighting"
+  },
+  {
+    title: "Landscape",
+    prompt: "A beautiful landscape scene, natural lighting, high resolution, detailed"
+  },
+  {
+    title: "Anime Style",
+    prompt: "Anime style illustration, vibrant colors, detailed, high quality"
+  },
+  {
+    title: "Realistic Art",
+    prompt: "Photorealistic art, highly detailed, professional quality, 4K resolution"
+  },
+  {
+    title: "Fantasy",
+    prompt: "Fantasy art style, magical elements, detailed, vibrant colors"
+  },
+  {
+    title: "Minimalist",
+    prompt: "Minimalist design, clean lines, simple composition, modern style"
+  },
+  {
+    title: "Vintage",
+    prompt: "Vintage style, retro aesthetic, warm tones, classic composition"
+  },
+  {
+    title: "Abstract",
+    prompt: "Abstract art, creative composition, vibrant colors, artistic style"
+  }
 ];
 
-export function PromptInput({ value, onChange }: PromptInputProps) {
-  const handlePresetClick = (preset: string) => {
+const imageToImagePrompts: PresetPrompt[] = [
+  {
+    title: "Remove Background",
+    prompt: "Remove the background, keep the main subject, clean cutout"
+  },
+  {
+    title: "Change Clothing",
+    prompt: "Change the clothing to casual wear, maintain the person's pose and appearance"
+  },
+  {
+    title: "Hair Style",
+    prompt: "Change the hairstyle to a modern short cut, keep facial features"
+  },
+  {
+    title: "Add Colors",
+    prompt: "Make the image more colorful and vibrant, enhance saturation"
+  },
+  {
+    title: "Artistic Effect",
+    prompt: "Apply artistic effects, painting-like style, enhanced details"
+  },
+  {
+    title: "Better Lighting",
+    prompt: "Enhance the lighting, improve brightness and contrast, professional look"
+  },
+  {
+    title: "Black & White",
+    prompt: "Convert to black and white, high contrast, dramatic effect"
+  },
+  {
+    title: "Vintage Filter",
+    prompt: "Add vintage filter effect, warm tones, retro aesthetic"
+  }
+];
+
+export function PromptInput({ value, onChange, mode }: PromptInputProps) {
+  const presetPrompts = mode === 'text2img' ? textToImagePrompts : imageToImagePrompts;
+  
+  const handlePresetClick = (presetPrompt: PresetPrompt) => {
     if (value.trim()) {
-      onChange(value + ', ' + preset);
+      onChange(value + ', ' + presetPrompt.prompt);
     } else {
-      onChange(preset);
+      onChange(presetPrompt.prompt);
     }
   };
 
@@ -38,7 +105,7 @@ export function PromptInput({ value, onChange }: PromptInputProps) {
         <Textarea
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          placeholder="Describe what you want to generate or modify..."
+          placeholder={mode === 'text2img' ? "Describe what you want to generate..." : "Describe how you want to modify the image..."}
           className="min-h-[100px] resize-none"
         />
       </div>
@@ -52,8 +119,9 @@ export function PromptInput({ value, onChange }: PromptInputProps) {
               variant="secondary"
               className="cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors"
               onClick={() => handlePresetClick(preset)}
+              title={preset.prompt}
             >
-              {preset}
+              {preset.title}
             </Badge>
           ))}
         </div>
