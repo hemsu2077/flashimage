@@ -37,7 +37,7 @@ export default function MyDrawingsClient({ drawings }: MyDrawingsClientProps) {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to delete drawing");
+        throw new Error("Failed to delete image");
       }
 
       setDrawingsList(prev => prev.filter(d => d.uuid !== drawing.uuid));
@@ -50,8 +50,8 @@ export default function MyDrawingsClient({ drawings }: MyDrawingsClientProps) {
         setCurrentPage(prev => prev - 1);
       }
     } catch (error) {
-      console.error("Error deleting drawing:", error);
-      toast.error("Failed to delete drawing");
+      console.error("Error deleting image:", error);
+      toast.error("Failed to delete image");
     } finally {
       setIsDeleting(false);
     }
@@ -69,14 +69,14 @@ export default function MyDrawingsClient({ drawings }: MyDrawingsClientProps) {
             <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-100 flex items-center justify-center">
               <Eye className="w-12 h-12 text-gray-400" />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">No Drawings Yet</h1>
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">No Creations Yet</h1>
             <p className="text-gray-600 mb-8">
-              You haven't created any drawings yet. Start by converting your first image!
+              You haven't created any creations yet. Start by converting your first image!
             </p>
           </div>
-          <Link href="/#drawing-generator">
+          <Link href="/#gen-image">
             <Button size="lg" className="px-8">
-              Convert to Drawing
+              Generate Image
             </Button>
           </Link>
         </div>
@@ -87,9 +87,9 @@ export default function MyDrawingsClient({ drawings }: MyDrawingsClientProps) {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">My Drawings</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">My Creations</h1>
         <p className="text-gray-600">
-           {drawingsList.length} total drawings
+           {drawingsList.length} total creations
         </p>
       </div>
 

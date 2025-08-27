@@ -34,12 +34,20 @@ try {
         }
       }
 
-    const { prompt, images } = await req.json();
+    const { prompt, images, mode } = await req.json();
 
     // Validate required inputs
-    if (!prompt || !images || !Array.isArray(images) || images.length === 0) {
-      return respErr("Missing required parameters: prompt and images (array)");
+    if (!prompt) {
+      return respErr("Missing required parameter: prompt");
     }
+    
+    // For image-to-image mode, images are required
+    if (mode === 'image-to-image' && (!images || !Array.isArray(images) || images.length === 0)) {
+      return respErr("Missing required parameter: images (array) for image-to-image mode");
+    }
+    
+    // Ensure images is an array (empty for text-to-image)
+    const imageArray = images || [];
     
     // Choose model
     const model = "google/nano-banana";
@@ -49,8 +57,8 @@ try {
     const imageUrls: string[] = [];
     const storage = newStorage();
     
-    for (let i = 0; i < images.length; i++) {
-      const image = images[i];
+    for (let i = 0; i < imageArray.length; i++) {
+      const image = imageArray[i];
       
       if (image.startsWith('https://')) {
         imageUrls.push(image);
@@ -77,11 +85,15 @@ try {
       }
     }
     const imageModel = replicate.image(model);
-    const providerOptions = {
+    const providerOptions: any = {
       replicate: {
-        image_input: imageUrls,
         output_format: "png",
       },
+    };
+    
+    // Only add image_input for image-to-image mode
+    if (mode === 'image-to-image' && imageUrls.length > 0) {
+      providerOptions.replicate.image_input = imageUrls;
     }
 
     const { images: generatedImages, warnings } = await generateImage({
@@ -129,6 +141,7 @@ try {
                 generated_image_url: res.url || "",
                 style: "custom", // Since we don't have predefined styles anymore
                 ratio: "custom", // Since ratio is not used in new model
+                mode: mode || "text-to-image", // Save the generation mode
                 provider: provider,
                 filename: filename,
                 status: "completed",

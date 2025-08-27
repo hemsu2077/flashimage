@@ -1,0 +1,1 @@
+ALTER TABLE "flash_images_images" ADD COLUMN "mode" varchar(50) DEFAULT 'image-to-image' NOT NULL;
