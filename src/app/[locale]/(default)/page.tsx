@@ -18,6 +18,7 @@ import TransformationExamples from "@/components/blocks/transformation-examples"
 import { getLandingPage } from "@/services/page";
 import DrawingGenerator from "@/components/drawing-generator";
 import Features from "@/components/blocks/features";
+import { ImageGenerator } from "@/components/image-generator";
 
 export async function generateMetadata({
   params,
@@ -50,7 +51,7 @@ export default async function LandingPage({
     <>
       {page.hero && <Hero hero={page.hero} />}
       <div id="gen-image">
-   
+        <ImageGenerator />
       </div>
       {page.introduce && <Feature1 section={page.introduce} />}
       {page.use_cases && <TransformationExamples section={page.use_cases} />}
