@@ -17,6 +17,7 @@ import Testimonial from "@/components/blocks/testimonial";
 import TransformationExamples from "@/components/blocks/transformation-examples";
 import { getLandingPage } from "@/services/page";
 import DrawingGenerator from "@/components/drawing-generator";
+import Features from "@/components/blocks/features";
 
 export async function generateMetadata({
   params,
@@ -51,6 +52,7 @@ export default async function LandingPage({
       <div id="drawing-generator">
         <DrawingGenerator />
       </div>
+      {page.features && <Features section={page.features} />}
       {page.introduce && <Feature1 section={page.introduce} />}
       {page.transformation_examples && <TransformationExamples section={page.transformation_examples} />}
       {page.benefit && <Feature2 section={page.benefit} />}
