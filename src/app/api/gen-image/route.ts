@@ -12,27 +12,27 @@ export async function POST(req: Request) {
 try {
     let userUuid = "";
     
-    // Check authentication and credits only if auth is enabled
-    // if (isAuthEnabled()) {
-    //   const session = await auth();
-    //   if (!session?.user?.uuid) {
-    //     return Response.json(
-    //       { code: -1, message: "Authentication required" }, 
-    //       { status: 401 }
-    //     );
-    //   }
+      // Check authentication and credits only if auth is enabled
+      if (isAuthEnabled()) {
+        const session = await auth();
+        if (!session?.user?.uuid) {
+          return Response.json(
+            { code: -1, message: "Authentication required" }, 
+            { status: 401 }
+          );
+        }
 
-    //   userUuid = session.user.uuid;
+        userUuid = session.user.uuid;
 
-    //   // Check user credits
-    //   const userCredits = await getUserCredits(userUuid);
-    //   if (userCredits.left_credits < 2) {
-    //     return Response.json(
-    //       { code: -1, message: "Insufficient credits." }, 
-    //       { status: 402 }
-    //     );
-    //   }
-    // }
+        // Check user credits
+        const userCredits = await getUserCredits(userUuid);
+        if (userCredits.left_credits < 2) {
+          return Response.json(
+            { code: -1, message: "Insufficient credits." }, 
+            { status: 402 }
+          );
+        }
+      }
 
     const { prompt, images } = await req.json();
 

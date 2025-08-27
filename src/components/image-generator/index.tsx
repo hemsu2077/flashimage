@@ -8,8 +8,14 @@ import { PromptInput } from './prompt-input';
 import { GenerateButton } from './generate-button';
 import { ResultPanel } from './result-panel';
 import { GenerationMode, ImageFile, GenerationState } from './types';
+import { useSession } from 'next-auth/react';
+import { useAppContext } from '@/contexts/app';
+import { isAuthEnabled } from '@/lib/auth';
 
 export function ImageGenerator() {
+  const { data: session } = isAuthEnabled() ? useSession() : { data: null };
+  const { setShowSignModal } = useAppContext();
+  
   const [mode, setMode] = useState<GenerationMode>('image-to-image');
   const [images, setImages] = useState<ImageFile[]>([]);
   const [prompt, setPrompt] = useState('');
@@ -20,11 +26,25 @@ export function ImageGenerator() {
   });
 
   const handleGenerate = async () => {
+    // Check if user is logged in (only if auth is enabled)
+    if (isAuthEnabled() && !session) {
+      setShowSignModal(true);
+      return;
+    }
+
     if (mode === 'image-to-image' && images.length === 0) {
+      setGenerationState(prev => ({
+        ...prev,
+        error: 'Please select at least one image for image-to-image generation',
+      }));
       return;
     }
     
     if (!prompt.trim()) {
+      setGenerationState(prev => ({
+        ...prev,
+        error: 'Please enter a prompt',
+      }));
       return;
     }
 
@@ -34,62 +54,108 @@ export function ImageGenerator() {
       error: null,
     }));
 
-    // Process images for API call
-    const processedImages: string[] = [];
-    
-    if (mode === 'image-to-image') {
-      for (const image of images) {
-        if (image.preview.startsWith('https://')) {
-          // Sample image - use URL directly
-          processedImages.push(image.preview);
-        } else {
-          // User uploaded image - convert to base64
-          try {
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            const img = new Image();
-            
-            await new Promise((resolve, reject) => {
-              img.onload = resolve;
-              img.onerror = reject;
-              img.src = image.preview;
-            });
-            
-            canvas.width = img.width;
-            canvas.height = img.height;
-            ctx?.drawImage(img, 0, 0);
-            
-            const base64 = canvas.toDataURL('image/png').split(',')[1];
-            processedImages.push(base64);
-          } catch (error) {
-            console.error('Failed to process image:', error);
+    try {
+      // Process images for API call
+      const processedImages: string[] = [];
+      
+      if (mode === 'image-to-image') {
+        for (const image of images) {
+          if (image.preview.startsWith('https://')) {
+            // Sample image - use URL directly
+            processedImages.push(image.preview);
+          } else {
+            // User uploaded image - convert to base64
+            try {
+              const canvas = document.createElement('canvas');
+              const ctx = canvas.getContext('2d');
+              const img = new Image();
+              
+              await new Promise((resolve, reject) => {
+                img.onload = resolve;
+                img.onerror = reject;
+                img.src = image.preview;
+              });
+              
+              canvas.width = img.width;
+              canvas.height = img.height;
+              ctx?.drawImage(img, 0, 0);
+              
+              const base64 = canvas.toDataURL('image/png').split(',')[1];
+              processedImages.push(base64);
+            } catch (error) {
+              console.error('Failed to process image:', error);
+              setGenerationState({
+                isGenerating: false,
+                result: null,
+                error: 'Failed to process uploaded image',
+              });
+              return;
+            }
           }
         }
       }
-    }
 
-    console.log('Generating with:', { mode, images: processedImages, prompt });
-    
-    // TODO: Replace with actual API call
-    // const response = await fetch('/api/gen-image', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ prompt, images: processedImages })
-    // });
-    
-    // Simulate generation
-    setTimeout(() => {
+      console.log('Generating with:', { mode, images: processedImages, prompt });
+      
+      // Call the actual API
+      const response = await fetch('/api/gen-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          prompt, 
+          images: processedImages,
+          mode
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          // Authentication required - show login modal
+          setShowSignModal(true);
+          setGenerationState({
+            isGenerating: false,
+            result: null,
+            error: null,
+          });
+          return;
+        } else if (response.status === 402) {
+          // Insufficient credits
+          setGenerationState({
+            isGenerating: false,
+            result: null,
+            error: data.message || 'Insufficient credits',
+          });
+          return;
+        }
+        throw new Error(data.message || 'Generation failed');
+      }
+
+      // API returns {code: 0, message: "ok", data: [...]}
+      if (data.code === 0 && data.data && data.data.length > 0) {
+        const firstResult = data.data[0];
+        setGenerationState({
+          isGenerating: false,
+          result: {
+            id: Date.now().toString(),
+            url: firstResult.url || firstResult.signedUrl || '',
+            filename: firstResult.filename || 'generated.png',
+            provider: firstResult.provider || 'replicate',
+          },
+          error: null,
+        });
+      } else {
+        throw new Error(data.message || 'Invalid response format');
+      }
+    } catch (error) {
+      console.error('Generation error:', error);
       setGenerationState({
         isGenerating: false,
-        result: {
-          id: Date.now().toString(),
-          url: 'https://via.placeholder.com/512x512?text=Generated+Image',
-          filename: 'generated.png',
-          provider: 'replicate',
-        },
-        error: null,
+        result: null,
+        error: error instanceof Error ? error.message : 'An unexpected error occurred',
       });
-    }, 3000);
+    }
   };
 
   const canGenerate = prompt.trim() && (mode === 'text-to-image' || images.length > 0);

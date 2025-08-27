@@ -26,7 +26,7 @@ export function GenerateButton({ onClick, disabled, isGenerating }: GenerateButt
         ) : (
           <>
             Generate Image
-            <Coins className="w-5 h-5 mr-2" /> 2
+            <Coins className="w-5 h-5 mr-2" />2
           </>
         )}
       </Button>
