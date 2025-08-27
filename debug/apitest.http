@@ -56,7 +56,7 @@ Authorization: Bearer {{apiKey}}
 
 
 ### gen-drawing
-POST {{baseUrl}}/api/gen-drawing
+POST {{baseUrl}}/api/gen-image
 Content-Type: application/json
 Authorization: Bearer {{apiKey}}
 

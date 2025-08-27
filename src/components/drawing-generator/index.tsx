@@ -145,7 +145,7 @@ export function DrawingGenerator({ className }: DrawingGeneratorProps) {
       }
       
       // Call API immediately for both paid and free users
-      const response = await fetch('/api/gen-drawing', {
+      const response = await fetch('/api/gen-image', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

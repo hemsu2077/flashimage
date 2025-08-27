@@ -55,10 +55,7 @@ try {
     const prompt = `transform the image to a drawing, the drawing should be in the style of ${styleName}`
     
     // Choose model based on style
-    const model = style === 'line-drawing' 
-      ? "black-forest-labs/flux-kontext-dev" 
-      : "black-forest-labs/flux-kontext-pro";
-    
+    const model = "google/nano-banana";
     console.log(`Using model: ${model} for style: ${style}`);
     
     let inputImageUrl: string;

@@ -64,12 +64,12 @@ Using model: black-forest-labs/flux-kontext-pro for style: pencil-sketch
 ### API测试
 ```bash
 # 测试line-drawing风格
-curl -X POST /api/gen-drawing \
+curl -X POST /api/gen-image \
   -d '{"style":"line-drawing",...}'
 # 预期: 使用flux-kontext-dev模型
 
 # 测试其他风格  
-curl -X POST /api/gen-drawing \
+curl -X POST /api/gen-image \
   -d '{"style":"pencil-sketch",...}'
 # 预期: 使用flux-kontext-pro模型
 ```

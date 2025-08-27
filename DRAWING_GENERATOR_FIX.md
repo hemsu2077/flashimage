@@ -53,7 +53,7 @@ const providerOptions = {
 
 ✅ API endpoint test successful:
 ```bash
-curl -X POST http://localhost:3000/api/gen-drawing \
+curl -X POST http://localhost:3000/api/gen-image \
   -H "Content-Type: application/json" \
   -d '{"style":"pencil-sketch","image":"[base64]","ratio":"1:1"}'
 
