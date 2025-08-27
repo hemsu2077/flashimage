@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
 import { getImagesByUserUuid } from "@/models/image";
 import { redirect } from "next/navigation";
-import MyDrawingsClient from "./client";
+import MyImagesClient from "./client";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export default async function MyDrawingsPage() {
   }
 
   // Get user's drawings
-  const drawings = await getImagesByUserUuid(session.user.uuid, 1, 100);
+  const images = await getImagesByUserUuid(session.user.uuid, 1, 100);
 
-  return <MyDrawingsClient drawings={drawings || []} />;
+  return <MyImagesClient images={images || []} />;
 }

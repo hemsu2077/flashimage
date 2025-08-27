@@ -5,34 +5,34 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Eye, ChevronLeft, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
-import { Drawing } from "@/components/drawing-generator/shared-types";
-import { DrawingCard } from "@/components/drawing-generator/drawing-card";
-import { DrawingDetailModal } from "@/components/drawing-generator/drawing-detail-modal";
-import { DeleteConfirmationDialog } from "@/components/drawing-generator/delete-confirmation-dialog";
+import { GeneratedImage } from "@/components/image-generator/shared-types";
+import { ImageCard } from "@/components/image-generator/image-card";
+import { ImageDetailModal } from "@/components/image-generator/image-detail-modal";
+import { DeleteConfirmationDialog } from "@/components/image-generator/delete-confirmation-dialog";
 
-interface MyDrawingsClientProps {
-  drawings: Drawing[];
+interface MyImagesClientProps {
+  images: GeneratedImage[];
 }
 
 const ITEMS_PER_PAGE = 12;
 
-export default function MyDrawingsClient({ drawings }: MyDrawingsClientProps) {
-  const [selectedDrawing, setSelectedDrawing] = useState<Drawing | null>(null);
-  const [drawingsList, setDrawingsList] = useState(drawings);
+export default function MyImagesClient({ images }: MyImagesClientProps) {
+  const [selectedImage, setSelectedImage] = useState<GeneratedImage | null>(null);
+  const [imagesList, setImagesList] = useState(images);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
-  const [drawingToDelete, setDrawingToDelete] = useState<Drawing | null>(null);
+  const [imageToDelete, setImageToDelete] = useState<GeneratedImage | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = Math.ceil(drawingsList.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(images.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
-  const currentDrawings = drawingsList.slice(startIndex, endIndex);
+  const currentImages = images.slice(startIndex, endIndex);
 
-  const handleDelete = async (drawing: Drawing) => {
+  const handleDelete = async (image: GeneratedImage) => {
     setIsDeleting(true);
     try {
-      const response = await fetch(`/api/delete-drawing/${drawing.uuid}`, {
+      const response = await fetch(`/api/delete-image/${image.uuid}`, {
         method: "DELETE",
       });
 
@@ -40,13 +40,13 @@ export default function MyDrawingsClient({ drawings }: MyDrawingsClientProps) {
         throw new Error("Failed to delete image");
       }
 
-      setDrawingsList(prev => prev.filter(d => d.uuid !== drawing.uuid));
-      toast.success("Drawing deleted successfully");
+      setImagesList(prev => prev.filter(d => d.uuid !== image.uuid));
+      toast.success("Image deleted successfully");
       setIsDeleteDialogOpen(false);
-      setDrawingToDelete(null);
+      setImageToDelete(null);
       
-      // if current page has only one drawing, go to previous page
-      if (currentDrawings.length === 1 && currentPage > 1) {
+      // if current page has only one image, go to previous page
+      if (currentImages.length === 1 && currentPage > 1) {
         setCurrentPage(prev => prev - 1);
       }
     } catch (error) {
@@ -61,7 +61,7 @@ export default function MyDrawingsClient({ drawings }: MyDrawingsClientProps) {
     setCurrentPage(page);
   };
 
-  if (drawingsList.length === 0) {
+  if (images.length === 0) {
     return (
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-md mx-auto text-center">
@@ -89,21 +89,21 @@ export default function MyDrawingsClient({ drawings }: MyDrawingsClientProps) {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">My Creations</h1>
         <p className="text-gray-600">
-           {drawingsList.length} total creations
+           {images.length} total creations
         </p>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-8">
-        {currentDrawings.map((drawing) => (
-          <DrawingCard
-            key={drawing.uuid}
-            drawing={drawing}
-            onClick={() => setSelectedDrawing(drawing)}
+        {currentImages.map((image) => (
+          <ImageCard
+            key={image.uuid}
+            image={image}
+            onClick={() => setSelectedImage(image)}
             showDeleteButton={true}
             showDownloadButton={true}
             showToast={true}
             onDelete={() => {
-              setDrawingToDelete(drawing);
+              setImageToDelete(image);
               setIsDeleteDialogOpen(true);
             }}
           />
@@ -150,22 +150,22 @@ export default function MyDrawingsClient({ drawings }: MyDrawingsClientProps) {
       )}
 
       {/* Image Detail Modal */}
-      <DrawingDetailModal
-        drawing={selectedDrawing}
-        isOpen={!!selectedDrawing}
-        onClose={() => setSelectedDrawing(null)}
+      <ImageDetailModal
+        image={selectedImage}
+        isOpen={!!selectedImage}
+        onClose={() => setSelectedImage(null)}
         showToast={true}
         showDeleteButton={true}
-        onDelete={(drawing) => {
-          setSelectedDrawing(null);
-          setDrawingToDelete(drawing);
+        onDelete={(image) => {
+          setSelectedImage(null);
+          setImageToDelete(image);
           setIsDeleteDialogOpen(true);
         }}
       />
 
       {/* Delete Confirmation Dialog */}
       <DeleteConfirmationDialog
-        drawing={drawingToDelete}
+        image={imageToDelete}
         isOpen={isDeleteDialogOpen}
         onClose={() => setIsDeleteDialogOpen(false)}
         onConfirm={handleDelete}

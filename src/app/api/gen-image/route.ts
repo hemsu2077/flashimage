@@ -142,6 +142,7 @@ try {
                 style: "custom", // Since we don't have predefined styles anymore
                 ratio: "custom", // Since ratio is not used in new model
                 mode: mode || "text-to-image", // Save the generation mode
+                prompt: prompt, // Save the generation prompt
                 provider: provider,
                 filename: filename,
                 status: "completed",

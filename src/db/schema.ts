@@ -139,6 +139,7 @@ export const images = pgTable("flash_images_images", {
   style: varchar({ length: 50 }).notNull(),
   ratio: varchar({ length: 50 }),
   mode: varchar({ length: 50 }).notNull().default("image-to-image"), // 'text-to-image' or 'image-to-image'
+  prompt: text(), // Store the generation prompt
   provider: varchar({ length: 50 }).notNull().default("replicate"),
   filename: varchar({ length: 255 }),
   status: varchar({ length: 50 }).notNull().default("completed"),
