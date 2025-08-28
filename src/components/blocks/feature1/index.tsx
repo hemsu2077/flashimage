@@ -12,11 +12,18 @@ export default function Feature1({ section }: { section: SectionType }) {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {section.image && (
             <div className="relative">
-              <img
-                src={section.image?.src}
-                alt="Flash Image AI"
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="w-full rounded-xl object-cover shadow-2xl"
-              />
+              >
+                <source 
+                  src={section.image?.src} 
+                  type="video/mp4" 
+                />
+              </video>
               <div className="absolute -inset-4 bg-gradient-to-r from-yellow-200/20 to-orange-200/20 rounded-2xl -z-10"></div>
             </div>
           )}
