@@ -16,13 +16,13 @@ export enum CreditsTransType {
   SystemAdd = "system_add", // system add credits
   DailyCheckin = "daily_checkin", // daily checkin rewards
   Ping = "ping", // cost for ping api
-  DrawingGeneration = "drawing_generation", // cost for drawing generation
+  ImageGeneration = "image_generation", // cost for image generation
 }
 
 export enum CreditsAmount {
   NewUserGet = 6,
   PingCost = 1,
-  DrawingGenerationCost = 2,
+  ImageGenerationCost = 2,
 }
 
 export async function getUserCredits(user_uuid: string): Promise<UserCredits> {

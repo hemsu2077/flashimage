@@ -59,6 +59,8 @@ CREATE TABLE "flash_images_images" (
 	"generated_image_url" varchar(500) NOT NULL,
 	"style" varchar(50) NOT NULL,
 	"ratio" varchar(50),
+	"mode" varchar(50) DEFAULT 'image-to-image' NOT NULL,
+	"prompt" text,
 	"provider" varchar(50) DEFAULT 'replicate' NOT NULL,
 	"filename" varchar(255),
 	"status" varchar(50) DEFAULT 'completed' NOT NULL,

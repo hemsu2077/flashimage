@@ -1,1 +1,0 @@
-ALTER TABLE "flash_images_images" ADD COLUMN "prompt" text;

@@ -1,5 +1,5 @@
 {
-  "id": "5b08c299-8422-497a-8bfa-7bb46f6fa7f9",
+  "id": "f96c60cf-088a-4abb-b94d-e8abe1400550",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -419,6 +419,19 @@
         "ratio": {
           "name": "ratio",
           "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mode": {
+          "name": "mode",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'image-to-image'"
+        },
+        "prompt": {
+          "name": "prompt",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
