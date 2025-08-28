@@ -24,10 +24,10 @@ export default function MyImagesClient({ images }: MyImagesClientProps) {
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = Math.ceil(images.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(imagesList.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
-  const currentImages = images.slice(startIndex, endIndex);
+  const currentImages = imagesList.slice(startIndex, endIndex);
 
   const handleDelete = async (image: GeneratedImage) => {
     setIsDeleting(true);
@@ -61,7 +61,7 @@ export default function MyImagesClient({ images }: MyImagesClientProps) {
     setCurrentPage(page);
   };
 
-  if (images.length === 0) {
+  if (imagesList.length === 0) {
     return (
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-md mx-auto text-center">
@@ -89,7 +89,7 @@ export default function MyImagesClient({ images }: MyImagesClientProps) {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">My Creations</h1>
         <p className="text-gray-600">
-           {images.length} total creations
+           {imagesList.length} total creations
         </p>
       </div>
 

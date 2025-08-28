@@ -13,8 +13,18 @@
     "nav": {
       "items": [
         {
-          "title": "Home",
-          "url": "/",
+          "title": "Features",
+          "url": "/#features",
+          "icon": ""
+        },
+        {
+          "title": "Use Cases",
+          "url": "/#use-cases",
+          "icon": ""
+        },
+        {
+          "title": "FAQ",
+          "url": "/#faq",
           "icon": ""
         },
         {
@@ -61,7 +71,7 @@
     "show_badge": false
   },
   "introduce": {
-    "name": "introduce",
+    "name": "features",
     "title": "Why Flash Image Leads AI Photo Editing",
     "label": "Features",
     "description": "Flash Image delivers the most advanced AI image editing with unmatched accuracy and consistency.",
@@ -88,46 +98,6 @@
         "title": "3D Spatial Intelligence",
         "description": "Flash Image's 3D understanding enables realistic effects, natural object placement, and accurate perspective simulation within 2D images.",
         "icon": "RiBox3Line"
-      }
-    ]
-  },
-  "features": {
-    "name": "features",
-    "title": "Why Flash Image Leads AI Photo Editing",
-    "label": "Features",
-    "description": "Discover why Flash Image stands out as the premier AI image editing solution. Our advanced technology delivers unprecedented accuracy and consistency in every edit.",
-    "items": [
-      {
-        "title": "High-Fidelity Contextual Editing",
-        "description": "Flash Image excels at seamlessly editing images while preserving original context. Add or remove objects, change weather conditions, or alter room decor with realistic lighting and shadows that maintain perfect consistency.",
-        "icon": "RiEditLine",
-        "image": {
-          "src": "/imgs/features/contextual-editing.png"
-        }
-      },
-      {
-        "title": "Exceptional Consistency",
-        "description": "Maintain remarkable consistency across all edits. Flash Image preserves core facial features while changing expressions, hairstyles, or backgrounds. Generate consistent characters from different angles with perfect environmental interactions.",
-        "icon": "RiRefreshLine",
-        "image": {
-          "src": "/imgs/features/consistency.png"
-        }
-      },
-      {
-        "title": "Advanced AI Reasoning",
-        "description": "Flash Image demonstrates exceptional ability to understand and reason beyond simple prompts. It infers real-world consequences and transforms rough sketches into detailed images by following complex instructions with precision.",
-        "icon": "RiBrainLine",
-        "image": {
-          "src": "/imgs/features/ai-reasoning.png"
-        }
-      },
-      {
-        "title": "Sophisticated 3D Understanding",
-        "description": "Strong understanding of 3D space within 2D images enables Flash Image to apply realistic 3D effects, place objects naturally into scenes, and simulate different perspectives with logical accuracy.",
-        "icon": "RiBox3Line",
-        "image": {
-          "src": "/imgs/features/3d-understanding.png"
-        }
       }
     ]
   },
@@ -223,7 +193,7 @@
     ]
   },
   "use_cases": {
-    "name": "use_cases",
+    "name": "use-cases",
     "title": "Flash Image Use Cases",
     "description": "From creative content production to professional marketing materials, Flash Image empowers professionals across industries to achieve stunning visual results with unprecedented efficiency.",
     "items": [
@@ -352,8 +322,13 @@
           "title": "About",
           "children": [
             {
-              "title": "Home",
-              "url": "/",
+              "title": "Features",
+              "url": "/#features",
+              "target": "_self"
+            },
+            {
+              "title": "Use Cases",
+              "url": "/#use-cases",
               "target": "_self"
             },
             {
@@ -365,10 +340,15 @@
               "title": "My Creations",
               "url": "/my-creations",
               "target": "_self"
-            },
+            }
+          ]
+        },
+        {
+          "title": "Support",
+          "children": [
             {
-              "title": "Free Credits",
-              "url": "/free-credits",
+              "title": "FAQ",
+              "url": "/#faq",
               "target": "_self"
             },
             {
