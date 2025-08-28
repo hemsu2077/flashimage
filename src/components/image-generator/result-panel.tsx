@@ -12,15 +12,25 @@ interface ResultPanelProps {
 export function ResultPanel({ generationState }: ResultPanelProps) {
   const { isGenerating, result, error, showAddCredits } = generationState;
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
     if (!result) return;
     
-    const link = document.createElement('a');
-    link.href = result.url;
-    link.download = result.filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    try {
+      const response = await fetch(result.url);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = result.filename || `generated-image-${Date.now()}.png`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } catch (error) {
+      console.error("Download failed:", error);
+      // 回退策略：在新标签页中打开图片
+      window.open(result.url, '_blank');
+    }
   };
 
   const handleShare = async () => {

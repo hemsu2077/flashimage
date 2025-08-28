@@ -5,7 +5,7 @@ export default function Bg() {
       <div 
         className="w-full h-full"
         style={{
-          background: 'linear-gradient(180deg, #f3f0ff 0%, #f7f3ff 20%, #faf7ff 40%, #fdf9f0 70%, #fff8f0 100%)',
+          background: 'linear-gradient(180deg, #f3f0ff 0%, #f7f3ff 20%, #faf7ff 40%, #fdf9f0 70%, #ffffff 100%)',
           filter: 'blur(0.5px)',
         }}
       />

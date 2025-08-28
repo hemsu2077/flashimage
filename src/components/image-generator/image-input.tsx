@@ -11,10 +11,11 @@ interface ImageInputProps {
 }
 
 const sampleImages = [
-  'https://files.picturetodrawing.com/sample/sample-1.webp',
-  'https://files.picturetodrawing.com/sample/sample-2.webp',
-  'https://files.picturetodrawing.com/sample/sample-3.webp',
-  'https://files.picturetodrawing.com/sample/sample-5.webp',
+  'https://pub-0e2ed356515c4b04b2ef9ad8006e4830.r2.dev/landing/flash_image_sample-1.webp',
+  'https://pub-0e2ed356515c4b04b2ef9ad8006e4830.r2.dev/landing/flash_image_sample-2.webp',
+  'https://pub-0e2ed356515c4b04b2ef9ad8006e4830.r2.dev/landing/flash_image_sample-3.webp',
+  'https://pub-0e2ed356515c4b04b2ef9ad8006e4830.r2.dev/landing/flash_image_sample-4.webp',
+  'https://pub-0e2ed356515c4b04b2ef9ad8006e4830.r2.dev/landing/flash_image_sample-5.webp',
 ];
 
 export function ImageInput({ images, onImagesChange }: ImageInputProps) {
