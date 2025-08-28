@@ -21,6 +21,8 @@ const sampleImages = [
 export function ImageInput({ images, onImagesChange }: ImageInputProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [dragOver, setDragOver] = useState(false);
+  const [hoveredImage, setHoveredImage] = useState<string | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const handleFileSelect = (files: FileList | null) => {
     if (!files) return;
@@ -85,6 +87,19 @@ export function ImageInput({ images, onImagesChange }: ImageInputProps) {
 
   const canAddMore = images.length < 5;
 
+  const handleMouseEnter = (url: string, event: React.MouseEvent) => {
+    setHoveredImage(url);
+    setMousePosition({ x: event.clientX, y: event.clientY });
+  };
+
+  const handleMouseMove = (event: React.MouseEvent) => {
+    setMousePosition({ x: event.clientX, y: event.clientY });
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredImage(null);
+  };
+
   return (
     <div className="space-y-4">
       <div className="space-y-2">
@@ -100,7 +115,7 @@ export function ImageInput({ images, onImagesChange }: ImageInputProps) {
       <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
         {/* Uploaded Images */}
         {images.map((image) => (
-          <div key={image.id} className="relative group">
+          <div key={image.id} className="relative">
             <div className="overflow-hidden aspect-square rounded-lg border">
               <img
                 src={image.preview}
@@ -109,9 +124,9 @@ export function ImageInput({ images, onImagesChange }: ImageInputProps) {
               />
             </div>
             <Button
-              variant="destructive"
+              variant="ghost"
               size="sm"
-              className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute top-1 right-1 h-6 w-6 rounded-full p-0 bg-primary/70 hover:bg-primary/80 text-white hover:text-white"
               onClick={() => removeImage(image.id)}
             >
               <X className="h-3 w-3" />
@@ -152,6 +167,9 @@ export function ImageInput({ images, onImagesChange }: ImageInputProps) {
               key={index}
               className="overflow-hidden cursor-pointer hover:ring-2 hover:ring-primary transition-all rounded border w-12 h-12 flex-shrink-0"
               onClick={() => addSampleImage(url)}
+              onMouseEnter={(e) => handleMouseEnter(url, e)}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
             >
               <img
                 src={url}
@@ -162,6 +180,25 @@ export function ImageInput({ images, onImagesChange }: ImageInputProps) {
           ))}
         </div>
       </div>
+
+      {/* Hover Preview */}
+      {hoveredImage && (
+        <div
+          className="fixed z-50 pointer-events-none"
+          style={{
+            left: mousePosition.x - 96, 
+            top: mousePosition.y + 35,  
+          }}
+        >
+          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-2">
+            <img
+              src={hoveredImage}
+              alt="Preview"
+              className="w-48 h-48 object-cover rounded"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -66,7 +66,7 @@
     "label": "Features",
     "description": "Flash Image delivers the most advanced AI image editing with unmatched accuracy and consistency.",
     "image": {
-      "src": "https://pub-0e2ed356515c4b04b2ef9ad8006e4830.r2.dev/landing/flash-image-sample.mp4"
+      "src": "https://pub-0e2ed356515c4b04b2ef9ad8006e4830.r2.dev/landing/flash-image-sample.mp4?v=3"
     },
     "items": [
       {
@@ -233,7 +233,7 @@
         "icon": "RiVideoLine",
         "description": "Flash Image revolutionizes creative workflows for artists and designers. Generate consistent characters across scenes, create compelling concept art, and produce unique social media visuals with unmatched consistency.",
         "image": {
-          "src": "https://pub-0e2ed356515c4b04b2ef9ad8006e4830.r2.dev/landing/usecase_flash_image_creative_content.webp",
+          "src": "https://pub-0e2ed356515c4b04b2ef9ad8006e4830.r2.dev/landing/usecase_flash_image_creative_content.webp?v=1",
           "alt": "Flash Image Usecase - Creative Content"
         },
         "children": [

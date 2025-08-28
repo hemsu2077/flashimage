@@ -9,7 +9,7 @@ export default function HappyUsers() {
         {Array.from({ length: 5 }).map((_, index) => (
           <Avatar className="size-12 border" key={index}>
             <AvatarImage
-              src={`https://files.picturetodrawing.com/users/${index + 1}.webp`}
+              src={`https://pub-0e2ed356515c4b04b2ef9ad8006e4830.r2.dev/user/${index + 1}.webp`}
               alt="user"
             />
           </Avatar>
