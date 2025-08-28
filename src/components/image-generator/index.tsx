@@ -162,7 +162,7 @@ export function ImageGenerator() {
   const canGenerate = prompt.trim() && (mode === 'text-to-image' || images.length > 0);
 
   return (
-    <div className="w-full max-w-6xl mx-auto mb-16">
+    <div className="w-full max-w-6xl mx-auto">
       <div className="bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 p-[6px] rounded-lg shadow-none">
         <Card className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-0 border-none shadow-none bg-white rounded-lg">
         {/* Left Panel - Input */}

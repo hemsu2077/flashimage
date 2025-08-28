@@ -50,9 +50,6 @@ export default async function LandingPage({
   return (
     <>
       {page.hero && <Hero hero={page.hero} />}
-      <div id="gen-image">
-        <ImageGenerator />
-      </div>
       {page.introduce && <Feature1 section={page.introduce} />}
       {page.use_cases && <TransformationExamples section={page.use_cases} />}
       {page.benefit && <Feature2 section={page.benefit} />}

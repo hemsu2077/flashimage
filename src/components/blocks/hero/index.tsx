@@ -6,6 +6,7 @@ import { Hero as HeroType } from "@/types/blocks/hero";
 import Icon from "@/components/icon";
 import { Link } from "@/i18n/navigation";
 import { Brain, Images, LoaderPinwheel, Shield, Zap } from "lucide-react";
+import { ImageGenerator } from "@/components/image-generator";
 
 export default function Hero({ hero }: { hero: HeroType }) {
   if (hero.disabled) {
@@ -104,6 +105,9 @@ export default function Hero({ hero }: { hero: HeroType }) {
             )}
             {hero.show_happy_users && <HappyUsers />}
           </div>
+        </div>
+        <div id="gen-image" className="py-16">
+        <ImageGenerator />
         </div>
       </section>
     </>

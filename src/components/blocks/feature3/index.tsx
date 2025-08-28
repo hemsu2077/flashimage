@@ -8,7 +8,7 @@ export default function Feature3({ section }: { section: SectionType }) {
   }
 
   return (
-    <section className="py-16 bg-teal-50">
+    <section className="py-16 bg-gradient-to-b from-indigo-50 to-transparent">
       <div className="container mx-auto px-4">
         <div className="mx-auto flex max-w-2xl flex-col items-center gap-2 text-center mb-16">
           {section.label && (
