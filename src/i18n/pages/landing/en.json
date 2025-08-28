@@ -44,10 +44,10 @@
     "show_locale": false
   },
   "hero": {
-    "title": "Transform Photos with Flash Image AI",
-    "highlight_text": "Flash Image",
-    "description": "Flash Image delivers professional-grade contextual editing, consistent character generation, and seamless photo enhancement that preserves natural details while transforming your creative vision into reality.",
-    "tip": "Fast Generation, Contextual Editing, AI Reasoning",
+    "title": "Edit & Generate Images with Flash Image AI",
+    "highlight_text": "Flash Image AI",
+    "description": "Professional image editing and generation powered by the latest Gemini 2.5 Flash Image (Nano Banana). Transform your creative vision with contextual editing and consistent character generation.",
+    "tip": "Gemini 2.5 Flash Image, Contextual Editing, AI Reasoning",
     "buttons": [
       {
         "title": "Try for Free",
@@ -171,6 +171,10 @@
     "description": "Get answers to common questions about Flash Image's capabilities, pricing, and usage.",
     "items": [
       {
+        "title": "What is Flash Image?",
+        "description": "Flash Image is our AI-powered image editing and generation platform that leverages Google's latest Gemini 2.5 Flash Image model (also known as Nano Banana). We've built an intuitive interface and enhanced workflow around Google's cutting-edge AI technology, making professional-grade image editing accessible to everyone through natural language commands."
+      },
+      {
         "title": "What makes Flash Image different from other AI image editors?",
         "description": "Flash Image stands out through its exceptional contextual understanding and consistency. Unlike other tools, Flash Image maintains perfect character consistency across edits, understands 3D space within 2D images, and can reason about real-world consequences. Our advanced AI preserves natural lighting, shadows, and environmental interactions while making complex edits."
       },
@@ -192,7 +196,7 @@
       },
       {
         "title": "What file formats does Flash Image support?",
-        "description": "Flash Image supports all major image formats including JPG, PNG, WEBP, TIFF, and BMP for input. You can export your edited images in JPG, PNG, or WEBP formats with customizable quality settings. We also support RAW file processing for professional photographers."
+        "description": "Flash Image supports all major image formats including JPG, PNG and WEBP for input."
       },
       {
         "title": "How fast is Flash Image compared to traditional editing methods?",

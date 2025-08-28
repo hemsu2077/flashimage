@@ -61,8 +61,8 @@ export default function SignUser({ user }: { user: User }) {
       icon: "RiUserLine",
     },
     {
-      title: t("user.my_drawings"),
-      url: "/my-drawings",
+      title: t("user.my_creations"),
+      url: "/my-creations",
       icon: "RiImageLine",
     },
     {

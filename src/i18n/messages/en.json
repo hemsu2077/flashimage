@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Picture to Drawing AI - Convert Photos to Sketches Instantly",
-    "description": "Convert photos to drawings with AI. Transform any picture into pencil sketches, watercolor paintings, and artistic drawings in seconds. Free to try.",
-    "keywords": "picture to drawing, photo to sketch, AI drawing converter, convert photo to drawing, sketch converter"
+    "title": "Flash Image AI - Professional Image Editing & Generation Tool",
+    "description": "Flash Image AI: Professional image editing powered by Gemini 2.5 Flash. Contextual editing, consistent character generation, and advanced AI reasoning. Try free today.",
+    "keywords": "Flash Image, AI image editing, contextual editing, image generation, Gemini 2.5 Flash, professional photo editing"
   },
   "user": {
     "sign_in": "Sign In",
@@ -11,7 +11,7 @@
     "api_keys": "API Keys",
     "my_orders": "My Orders",
     "my_credits": "My Credits",
-    "my_drawings": "My Drawings",
+    "my_creations": "My Creations",
     "user_center": "User Center",
     "admin_system": "Admin System",
     "balance": "Balance",

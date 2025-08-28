@@ -35,10 +35,21 @@ import { cn } from "@/lib/utils";
 import { useAppContext } from "@/contexts/app";
 import { isAuthEnabled } from "@/lib/auth";
 import { useRouter } from "@/i18n/navigation";
+import { useEffect, useState } from "react";
 
 export default function Header({ header }: { header: HeaderType }) {
   const { user, setShowSignModal } = useAppContext();
   const router = useRouter();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   if (header.disabled) {
     return null;
@@ -56,7 +67,10 @@ export default function Header({ header }: { header: HeaderType }) {
   };
 
   return (
-    <section className="py-3">
+    <section className={cn(
+      "py-3 sticky top-0 z-50 transition-all duration-200",
+      isScrolled && "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm"
+    )}>
       <div className="container">
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">

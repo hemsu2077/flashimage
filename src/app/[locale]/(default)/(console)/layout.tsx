@@ -31,7 +31,7 @@ export default async function ({ children }: { children: ReactNode }) {
           is_active: false,
         },
         {
-          title: "My Creations",
+          title: t("user.my_creations"),
           url: "/my-creations",
           icon: "RiImageLine",
           is_active: false,
