@@ -3,7 +3,7 @@
     "name": "pricing",
     "label": "Pricing",
     "title": "Pricing",
-    "description": "Transform your photos into stunning artwork with FlashImage.",
+    "description": "Create stunning AI-generated images with Flash Image.",
     "groups": [
       {
         "name": "monthly",
@@ -23,14 +23,14 @@
     "items": [
       {
         "title": "Basic",
-        "description": "Perfect for trying out our AI drawing service.",
+        "description": "Perfect for exploring our AI image generation capabilities.",
         "features_title": "Includes",
         "features": [
           "100 credits, valid for 2 months",
           "No watermark",
           "Fast generation",
           "HD download",
-          "About $0.2 per drawing"
+          "About $0.2 per image"
         ],
         "interval": "one-time",
         "amount": 999,
@@ -52,14 +52,14 @@
       },
       {
         "title": "Standard",
-        "description": "Best for regular users who create artwork frequently.",
+        "description": "Ideal for regular users who generate images frequently.",
         "features_title": "Includes",
         "features": [
           "400 credits, valid for 6 months",
           "No watermark",
           "Fast generation",
           "HD download",
-          "About $0.1 per drawing"
+          "About $0.1 per image"
         ],
         "interval": "one-time",
         "amount": 1999,
@@ -81,7 +81,7 @@
       },
       {
         "title": "Premium",
-        "description": "For power users and creative professionals.",
+        "description": "For power users and creative professionals who need more generation capacity.",
         "features_title": "Includes",
         "label": "Popular",
         "features": [
@@ -89,7 +89,7 @@
           "No watermark",
           "Fast generation",
           "HD download",
-          "About $0.075 per drawing"
+          "About $0.075 per image"
         ],
         "interval": "one-time",
         "amount": 2999,
@@ -120,7 +120,7 @@
           "HD download",
           "Commercial use rights",
           "Priority customer support",
-          "About $0.1 per drawing"
+          "About $0.1 per image"
         ],
         "interval": "month",
         "amount": 999,
@@ -152,7 +152,7 @@
           "HD download",
           "Commercial use rights",
           "Priority customer support",
-          "About $0.85 per drawing"
+          "About $0.85 per image"
         ],
         "interval": "month",
         "amount": 1699,
@@ -183,7 +183,7 @@
           "HD download",
           "Commercial use rights",
           "Priority customer support",
-          "About $0.06 per drawing"
+          "About $0.06 per image"
         ],
         "interval": "month",
         "amount": 2999,
@@ -213,7 +213,7 @@
           "Fast generation",
           "HD download",
           "Commercial use rights",
-          "About $0.07 per drawing"
+          "About $0.07 per image"
         ],
         "interval": "year",
         "amount": 8388,
@@ -246,7 +246,7 @@
           "HD download",
           "Commercial use rights",
           "Priority customer support",
-          "About $0.06 per drawing"
+          "About $0.06 per image"
         ],
         "interval": "year",
         "amount": 14388,
@@ -278,7 +278,7 @@
           "HD download",
           "Commercial use rights",
           "Priority customer support",
-          "About $0.04 per drawing"
+          "About $0.04 per image"
         ],
         "interval": "year",
         "amount": 25188,
@@ -308,44 +308,44 @@
      "name": "faq",
      "label": "",
      "title": "Frequently Asked Questions",
-     "description": "Have questions about our AI picture to drawing service? Find answers below or contact our support team.",
+     "description": "Have questions about our AI image generation service? Find answers below or contact our support team.",
      "groups": [],
      "items": [
        {
          "title": "What happens when I run out of credits?",
-         "description": "For subscription plans (Monthly/Yearly), your credits automatically reset at the start of each billing cycle. For Pay As You Go users, you'll need to purchase a new credit pack to continue transforming photos into drawings. You can always upgrade to a subscription plan for automatic renewals."
+         "description": "When your credits are depleted, subscription users (Monthly/Yearly) will receive fresh credits automatically at the beginning of each billing period. Pay As You Go customers need to purchase additional credit packs to continue generating images. You can upgrade to a subscription plan anytime for seamless credit renewals."
        },
        {
          "title": "How long are my credits valid?",
-         "description": "Pay As You Go credits have different validity periods: Basic (2 months), Standard (6 months), Premium (12 months). Subscription credits (Monthly/Yearly) reset on your billing date. We recommend using your credits before they expire to get the most value."
+         "description": "Credit validity varies by plan: Basic pack lasts 2 months, Standard pack is valid for 6 months, and Premium pack extends to 12 months. Subscription credits refresh on your billing cycle. To maximize value, make sure to use your credits within their validity period."
        },
        {
-         "title": "How many drawings can I create with my credits?",
-         "description": "Each photo-to-drawing transformation typically uses 2 credit. So with 100 credits (Basic), you can create 50 drawings. With 200 credits (Standard Monthly), you can generate 100 drawings per month. The exact usage may vary based on image complexity and style."
+         "title": "How many images can I generate with my credits?",
+         "description": "Each AI image generation typically consumes 2 credits. This means 100 credits (Basic pack) allows for 50 image creations, while 200 credits (Standard Monthly) enables 100 generations per month. Actual credit usage may differ depending on image complexity and generation parameters."
        },
        {
          "title": "Can I get a refund for unused credits?",
-         "description": "Due to the computational resources required for AI image transformation, we cannot offer refunds for purchased credits. However, Pay As You Go credits have extended validity periods, giving you plenty of time to use them. For subscriptions, you can cancel anytime to prevent future charges."
+         "description": "Given the substantial computational costs involved in AI image generation, we're unable to provide refunds for purchased credits. That said, Pay As You Go credits come with generous validity periods, ensuring ample time for usage. Subscription users can cancel at any point to avoid future billing."
        },
        {
          "title": "What's the difference between the plans?",
-         "description": "Pay As You Go offers one-time purchases with different credit amounts and validity periods - perfect for occasional use. Monthly plans provide regular credit renewals with commercial rights and priority support. Yearly plans offer the same benefits as monthly but with significant savings (up to 30% off)."
+         "description": "Pay As You Go provides flexible one-time purchases with varying credit quantities and expiration dates - ideal for sporadic usage. Monthly subscriptions deliver consistent credit refills plus commercial licensing and priority support. Annual plans include all monthly benefits while offering substantial discounts (up to 30% savings)."
        },
        {
          "title": "How do I manage or cancel my subscription?",
-         "description": "You can manage your subscription, view usage, and cancel anytime in your account dashboard under 'My Credits' or 'My Account'. Pay As You Go purchases don't require cancellation as they're one-time payments."
+         "description": "Access your account dashboard to manage subscriptions, monitor usage, and cancel services anytime via 'My Credits' or 'My Account' sections. Pay As You Go purchases require no cancellation since they're single transactions."
        },
        {
-         "title": "What drawing styles can I create?",
-         "description": "Our AI can transform your photos into various artistic styles including pencil sketch, charcoal drawing, watercolor painting, line art, color pencil drawing, and ink art. You can choose your preferred style during the conversion process to match your artistic vision."
+         "title": "What types of images can I generate?",
+         "description": "Our AI creates diverse image styles and formats based on your prompts and preferences. From photorealistic images to artistic interpretations, abstract designs to detailed illustrations - the possibilities are vast. You can specify style preferences, themes, and visual elements to achieve your desired creative output."
        },
        {
-         "title": "Can I use the generated drawings commercially?",
-         "description": "Yes! Monthly and Yearly subscription plans include full commercial usage rights. You can use the generated drawings for your business, client projects, marketing materials, or any commercial purpose. Pay As You Go plans are for personal use only."
+         "title": "Can I use the generated images commercially?",
+         "description": "Absolutely! Monthly and Yearly subscribers enjoy complete commercial usage rights for all generated images. Use them for business ventures, client work, marketing campaigns, or any commercial application. Pay As You Go plans are restricted to personal use only."
        },
        {
-         "title": "What if I'm not satisfied with a generated drawing?",
-         "description": "While we can't offer refunds, you can try different artistic styles or adjust your photo for better results using your credits. Our AI works best with clear, well-lit photos. Contact our support team if you need help optimizing your images for the best artistic transformation."
+         "title": "What if I'm not satisfied with a generated image?",
+         "description": "Though refunds aren't available, you can experiment with different prompts, styles, or parameters using your remaining credits to achieve better results. Our AI performs optimally with detailed, specific prompts and clear instructions. Reach out to our support team for guidance on crafting effective prompts for superior image generation."
        }
      ]
   }

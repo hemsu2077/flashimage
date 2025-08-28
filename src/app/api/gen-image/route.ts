@@ -176,7 +176,7 @@ try {
       try {
         await decreaseCredits({
           user_uuid: userUuid,
-          trans_type: CreditsTransType.DrawingGeneration,
+          trans_type: CreditsTransType.ImageGeneration,
           credits: 2,
         });
         console.log(`Successfully deducted 2 credits from user ${userUuid}`);

@@ -12,17 +12,11 @@ export default function Feature1({ section }: { section: SectionType }) {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {section.image && (
             <div className="relative">
-              <video
+              <img
                 src={section.image?.src}
-                autoPlay
-                loop
-                muted
-                playsInline
-                controls={false}
+                alt="Flash Image AI"
                 className="w-full rounded-xl object-cover shadow-2xl"
-              >
-                Your browser does not support the video tag.
-              </video>
+              />
               <div className="absolute -inset-4 bg-gradient-to-r from-yellow-200/20 to-orange-200/20 rounded-2xl -z-10"></div>
             </div>
           )}
