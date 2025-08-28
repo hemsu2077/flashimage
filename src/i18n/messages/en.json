@@ -1,8 +1,13 @@
 {
   "metadata": {
-    "title": "Flash Image AI - Professional Image Editing & Generation Tool",
+    "title": "Flash Image AI - Professional Image Editing & Generation",
     "description": "Flash Image AI: Professional image editing powered by Gemini 2.5 Flash. Contextual editing, consistent character generation, and advanced AI reasoning. Try free today.",
-    "keywords": "Flash Image, AI image editing, contextual editing, image generation, Gemini 2.5 Flash, professional photo editing"
+    "keywords": "Flash Image, AI image editing, contextual editing, image generation, Gemini 2.5 Flash, professional photo editing",
+    "pricing": {
+      "title": "Pricing - Flash Image AI | AI Image Generation Plans",
+      "description": "Affordable AI image generation plans starting from $9.99. Choose from one-time purchases, monthly or annual subscriptions. No watermarks, HD downloads, commercial use rights.",
+      "keywords": "AI image generation pricing, Flash Image plans, AI art pricing, image generation subscription, AI photo editing cost"
+    }
   },
   "user": {
     "sign_in": "Sign In",
