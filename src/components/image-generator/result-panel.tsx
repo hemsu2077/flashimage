@@ -28,7 +28,7 @@ export function ResultPanel({ generationState }: ResultPanelProps) {
       document.body.removeChild(a);
     } catch (error) {
       console.error("Download failed:", error);
-      // 回退策略：在新标签页中打开图片
+      // 
       window.open(result.url, '_blank');
     }
   };

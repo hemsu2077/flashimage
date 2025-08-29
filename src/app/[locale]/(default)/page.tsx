@@ -58,6 +58,7 @@ export default async function LandingPage({
       {page.usage && <Feature3 section={page.usage} />}
       {page.faq && <FAQ section={page.faq} />}
       {page.cta && <CTA section={page.cta} />}
+      {page.branding && <Branding section={page.branding} />}
     </>
   );
 }

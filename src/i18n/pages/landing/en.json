@@ -70,6 +70,10 @@
     "show_happy_users": true,
     "show_badge": false
   },
+  "branding": {
+    "title": "Trusted by creators worldwide - Featured on leading platforms",
+    "items": []
+  },
   "introduce": {
     "name": "features",
     "title": "Why Flash Image Leads AI Photo Editing",
