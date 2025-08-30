@@ -18,7 +18,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: t("blog.title"),
+    title: t("blog.title") + " - flashimage.app",
     description: t("blog.description"),
     alternates: {
       canonical: canonicalUrl,

@@ -35,7 +35,7 @@ export default function ({ items }: { items: NavItem[] }) {
       <DropdownMenuContent align="end" className="w-[160px]">
         {items.map((item) => {
           return (
-            <DropdownMenuItem key={item.title}>
+            <DropdownMenuItem key={item.title} asChild>
               <Link
                 href={item.url || ""}
                 target={item.target || "_self"}

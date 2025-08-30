@@ -33,6 +33,11 @@
           "icon": ""
         },
         {
+          "title": "Blog",
+          "url": "/posts",
+          "icon": ""
+        },
+        {
           "title": "My Creations",
           "url": "/my-creations",
           "icon": ""
@@ -338,6 +343,11 @@
             {
               "title": "Pricing",
               "url": "/pricing",
+              "target": "_self"
+            },
+            {
+              "title": "Blog",
+              "url": "/posts",
               "target": "_self"
             },
             {
