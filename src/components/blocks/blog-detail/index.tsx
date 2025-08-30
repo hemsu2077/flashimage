@@ -10,40 +10,47 @@ import { Card } from "@/components/ui/card";
 
 export default function BlogDetail({ post }: { post: Post }) {
   return (
-    <section className="py-16">
-      <div className="container">
+    <article className="py-12 md:py-20">
+      <div className="container max-w-4xl mx-auto px-6 md:px-8 ">
         <Crumb post={post} />
-        <h1 className="mb-7 mt-9 max-w-3xl text-2xl font-bold md:mb-10 md:text-4xl">
-          {post.title}
-        </h1>
-        <div className="flex items-center gap-3 text-sm md:text-base bg-background">
-          {post.author_avatar_url && (
-            <Avatar className="h-8 w-8 border">
-              <AvatarImage
-                src={post.author_avatar_url}
-                alt={post.author_name}
-              />
-            </Avatar>
-          )}
-          <div>
-            {post.author_name && (
-              <span className="font-medium">{post.author_name}</span>
+        
+        {/* Article Header */}
+        <header className="mb-12 md:mb-16">
+          <h1 className="mb-8 mt-12 text-3xl lg:text-5xl font-bold leading-tight md:leading-tight lg:leading-tight tracking-tight text-foreground max-w-4xl">
+            {post.title}
+          </h1>
+          
+          {/* Author Info */}
+          <div className="flex items-center gap-4 pt-6 border-t border-border/30">
+            {post.author_avatar_url && (
+              <Avatar className="h-12 w-12 border-2 border-border/20">
+                <AvatarImage
+                  src={post.author_avatar_url}
+                  alt={post.author_name}
+                  className="object-cover"
+                />
+              </Avatar>
             )}
-
-            <span className="ml-2 text-muted-foreground">
-              on {post.created_at && moment(post.created_at).fromNow()}
-            </span>
+            <div className="flex flex-col gap-1">
+              {post.author_name && (
+                <span className="font-semibold text-base text-foreground">{post.author_name}</span>
+              )}
+              <span className="text-sm text-muted-foreground font-medium">
+                {post.created_at && moment(post.created_at).format('MMMM DD, YYYY')}
+              </span>
+            </div>
           </div>
-        </div>
-        <div className="relative py-8 grid max-w-(--breakpoint-xl) gap-4 lg:mt-0 lg:grid lg:grid-cols-12 lg:gap-6">
+        </header>
+
+        {/* Article Content */}
+        <div className="relative">
           {post.content && (
-            <Card className="order-2 lg:order-none lg:col-span-8 px-4">
+            <div className="prose prose-lg md:prose-xl max-w-3xl">
               <Markdown content={post.content} />
-            </Card>
+            </div>
           )}
-          <div className="order-1 flex h-fit flex-col text-sm lg:sticky lg:top-8 lg:order-none lg:col-span-3 lg:col-start-10 lg:text-xs"></div>
         </div>
       </div>
-    </section>
+    </article>
   );
 }
